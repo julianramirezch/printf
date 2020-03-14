@@ -45,8 +45,8 @@ while (format[cfor])
 	}
 	cfor++;
 }
-va_end(arguments);
 write(1, buffer, *position);
+va_end(arguments);
 free(buffer);
 return (*position);
 }
