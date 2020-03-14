@@ -6,43 +6,44 @@
  */
 int _printf(const char *format, ...)
 {
-char *buffer;
-buffer = malloc(2048);
-
 va_list arguments;
-unsigned int c_for = 0, c_arg = 0;
-unsigned int *position = NULL;
-position = malloc(sizeof(int))
-* position = 0;
-cases print_format[] = {{"c", print_char}, {"s", print_str}, {"i", print_int}
-		       {"%", print_percen}, {"d", print_decimal}, {NULL, NULL}};
+char *buffer = malloc (2048);
+unsigned int cfor;
+unsigned int carg;
+unsigned int c = 0;
+unsigned int *position;
 
+
+cases print_format[] = {{"c", print_char}, {"s", print_str}, {"i", print_int},
+		       {"%", print_percen}, {"d", print_decimal}, {NULL, NULL}};
+position = &c;
 va_start(arguments, format);
 if (format == NULL)
 	return (1);
-
-while (format[c_for])
+cfor = 0;
+carg = 0;
+while (format[cfor])
 {
-	if (format[c_for] == '%')
+	if (format[cfor] == '%')
 	{
-		c_for++;
-		c_arg = 0;
-		while (print_format)
+		cfor++;
+		carg = 0;
+		while (print_format[carg].arg[0])
 		{
-			if (format[c_for] == print_format[c_for].arg[0])
-				print_format[c_arg].f(arguments, buffer, position);
-			c_arg++;
+			if (format[cfor] == print_format[cfor].arg[0])
+				print_format[carg].f(arguments, buffer, position);
+			carg++;
 		}
 	}
 	else
 	{
-		buffer[*position] = format[c_for];
+		buffer[*position] = format[cfor];
 		*position += 1;
 	}
-	c_for++;
+	cfor++;
 }
 write(1, buffer, *position);
 free(buffer);
-free(position);
+printf("antes de salir %d", *position);
 return (*position);
 }

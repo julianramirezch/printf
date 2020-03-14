@@ -2,7 +2,7 @@
 #define HOLBERTON_H
 #include <stdio.h>
 #include <stdlib.h>
-#include <stadarg.h>
+#include <stdarg.h>
 #include <unistd.h>
 /**
  * struct formats - Struct
@@ -13,7 +13,7 @@
 typedef struct formats
 {
 	char *arg;
-	void (*f)(va_list, char *, unsigned int *);
+	void (*f)();
 } cases;
 
 int _printf(const char *format, ...);
