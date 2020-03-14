@@ -56,7 +56,7 @@ void print_decimal(va_list arguments, char *buffer, unsigned int *position)
         while((copyj/10) > 0)
         {
                 cont++;
-                copyj = copyj / 10;
+                copyj = (copyj / 10);
         }
         cont++;
         copycont = cont;
@@ -64,7 +64,7 @@ void print_decimal(va_list arguments, char *buffer, unsigned int *position)
         {
                 buffer[*position + cont - 1] = (copyj % 10) + 48;
                 cont--;
-                copyj = copyj / 10;
+                copyj = (copyj / 10);
         }
         *position += copycont;
 }
