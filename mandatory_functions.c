@@ -10,7 +10,7 @@ void print_str(va_list arguments, char *buffer, unsigned int *position)
 {
 	char *str = va_arg(arguments, char*);
 	int cont = 0;
-	while (str)
+	while (str[cont])
 	{
 		buffer[*position] = str[cont];
 		*position += 1;
@@ -20,23 +20,24 @@ void print_str(va_list arguments, char *buffer, unsigned int *position)
 
 void print_int(va_list arguments, char *buffer, unsigned int *position)
 {
-	int j = va_arg(arguments, int);
+	int num = va_arg(arguments, int);
 	int cont = 0;
 	int copycont;
-	int copyj= j;
+	int copynum;
+	copynum = num;
 	
-	while((copyj/10) > 0)
+	while((copynum/10) > 0)
 	{
 		cont++;
-		copyj = copyj / 10;
+		copynum = (copynum / 10);
 	}
 	cont++;
 	copycont = cont;
 	while (cont > 0)
 	{
-		buffer[*position + cont - 1] = (copyj % 10) + 48;
+		buffer[*position + cont - 1] = (copynum % 10) + 48;
 		cont--;
-		copyj = copyj / 10;
+		copynum = (copynum / 10);
 	}
 	*position += copycont;
 }

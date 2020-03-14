@@ -14,8 +14,8 @@ unsigned int c = 0;
 unsigned int *position;
 
 
-cases print_format[] = {{"c", print_char}, {"s", print_str}, {"i", print_int},
-		       {"%", print_percen}, {"d", print_decimal}, {NULL, NULL}};
+cases print_format[] = {{'c', print_char}, {'s', print_str}, {'i', print_int},
+		       {'%', print_percen}, {'d', print_decimal}, {0, NULL}};
 position = &c;
 va_start(arguments, format);
 if (format == NULL)
@@ -28,10 +28,13 @@ while (format[cfor])
 	{
 		cfor++;
 		carg = 0;
-		while (print_format[carg].arg[0])
+		while (print_format[carg].arg)
 		{
-			if (format[cfor] == print_format[cfor].arg[0])
+			if (format[cfor] == print_format[carg].arg)
+			{
 				print_format[carg].f(arguments, buffer, position);
+				break;
+			}
 			carg++;
 		}
 	}
@@ -42,8 +45,8 @@ while (format[cfor])
 	}
 	cfor++;
 }
+va_end(arguments);
 write(1, buffer, *position);
 free(buffer);
-printf("antes de salir %d", *position);
 return (*position);
 }
