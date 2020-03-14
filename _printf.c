@@ -13,7 +13,6 @@ unsigned int carg;
 unsigned int c = 0;
 unsigned int *position;
 
-
 cases print_format[] = {{'c', print_char}, {'s', print_str}, {'i', print_int},
 		       {'%', print_percen}, {'d', print_decimal}, {0, NULL}};
 position = &c;
