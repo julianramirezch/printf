@@ -26,18 +26,18 @@ void print_int(va_list arguments, char *buffer, unsigned int *position)
 	int copynum;
 	copynum = num;
 	
-	while((copynum/10) > 0)
+	while(copynum / 10 > 0)
 	{
 		cont++;
-		copynum = (copynum / 10);
+		copynum = copynum / 10;
 	}
 	cont++;
 	copycont = cont;
 	while (cont > 0)
 	{
-		buffer[*position + cont - 1] = (copynum % 10) + 48;
+		buffer[*position + cont - 1] = num % 10 + '0';
 		cont--;
-		copynum = (copynum / 10);
+		num = num / 10;
 	}
 	*position += copycont;
 }
