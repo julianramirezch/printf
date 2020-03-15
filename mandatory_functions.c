@@ -1,32 +1,54 @@
 #include "holberton.h"
 
-void print_char(va_list arguments, char *buffer, unsigned int *position)
+/**
+ * print_char - Print character.
+ * @argum: va_list,
+ * @buffer: Pointer.
+ * @posi: Pointer to position buffer.
+ * Return: Void.
+ */
+void print_char(va_list argum, char *buffer, unsigned int *posi)
 {
-	buffer[*position] = va_arg(arguments, int);
-	*position += 1;
+	buffer[*posi] = va_arg(argum, int);
+	*posi += 1;
 }
 
-void print_str(va_list arguments, char *buffer, unsigned int *position)
+/**
+ * print_str - Print string.
+ * @argum: va_list,
+ * @buffer: Pointer.
+ * @posi: Pointer to position buffer.
+ * Return: Void.
+ */
+void print_str(va_list argum, char *buffer, unsigned int *posi)
 {
-	char *str = va_arg(arguments, char*);
+	char *str = va_arg(argum, char*);
 	int cont = 0;
+
 	while (str[cont])
 	{
-		buffer[*position] = str[cont];
-		*position += 1;
+		buffer[*posi] = str[cont];
+		*posi += 1;
 		cont++;
 	}
 }
 
-void print_int(va_list arguments, char *buffer, unsigned int *position)
+/**
+ * print_int - Print character.
+ * @argum: va_list,
+ * @buffer: Pointer.
+ * @posi: Pointer to position buffer.
+ * Return: Void.
+ */
+void print_int(va_list argum, char *buffer, unsigned int *posi)
 {
-	int num = va_arg(arguments, int);
+	int num = va_arg(argum, int);
 	int cont = 0;
 	int copycont;
 	int copynum;
+
 	copynum = num;
-	
-	while(copynum / 10 > 0)
+	while (copynum / 10 > 0)
 	{
 		cont++;
 		copynum = copynum / 10;
@@ -35,36 +57,53 @@ void print_int(va_list arguments, char *buffer, unsigned int *position)
 	copycont = cont;
 	while (cont > 0)
 	{
-		buffer[*position + cont - 1] = num % 10 + '0';
+		buffer[*posi + cont - 1] = num % 10 + '0';
 		cont--;
 		num = num / 10;
 	}
-	*position += copycont;
+	*posi += copycont;
 }
-void print_percen(va_list arguments __attribute__((unused)), char *buffer, unsigned int *position)
-{
-	buffer[*position] = '%';
-	*position += 1;
-}
-void print_decimal(va_list arguments, char *buffer, unsigned int *position)
-{
-	int j = va_arg(arguments, int);
-        int cont = 0;
-        int copycont;
-        int copyj= j;
 
-        while((copyj/10) > 0)
-        {
-                cont++;
-                copyj = (copyj / 10);
-        }
-        cont++;
-        copycont = cont;
-        while (cont > 0)
-        {
-                buffer[*position + cont - 1] = (j % 10) + 48;
-                cont--;
-                j = (j / 10);
-        }
-        *position += copycont;
+/**
+ * print_pct - Print Percent.
+ * @argum: va_list,
+ * @buffer: Pointer.
+ * @posi: Pointer to position buffer.
+ * Return: Void.
+ */
+
+void print_pct(va_list argum __attribute__((unused)), char *buffer, unsigned int *posi)
+{
+	buffer[*posi] = '%';
+	*posi += 1;
+}
+
+/**
+ * print_decimal - Print decimal.
+ * @argum: va_list,
+ * @buffer: Pointer.
+ * @posi: Pointer to position buffer.
+ * Return: Void.
+ */
+void print_decimal(va_list argum, char *buffer, unsigned int *posi)
+{
+	int j = va_arg(argum, int);
+	int cont = 0;
+	int copycont;
+	int copyj = j;
+
+	while ((copyj / 10) > 0)
+	{
+		cont++;
+		copyj = (copyj / 10);
+	}
+	cont++;
+	copycont = cont;
+	while (cont > 0)
+	{
+		buffer[*posi + cont - 1] = (j % 10) + 48;
+		cont--;
+		j = (j / 10);
+	}
+	*posi += copycont;
 }
