@@ -6,36 +6,34 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list arguments;
-	char *buffer = malloc (2048);
-	unsigned int cfor;
-	unsigned int carg;
-	unsigned int c = 0;
-	unsigned int *position;
-
-	cases print_format[] = {{'c', print_char}, {'s', print_str}, {'i', print_int},
-				{'%', print_percen}, {'d', print_decimal}, {0, NULL}};
-	position = &c;
-	va_start(arguments, format);
+/*Validacion si para ver si hay un formato*/
 	if (format == NULL)
-		return (1);
-	cfor = 0;
-	carg = 0;
+		return (0);
+
+	va_list arguments;
+/* Asignando un puntero con un buffer principal */
+	char *buffer = malloc (2048);
+	if (buffer == NULL)
+		return (0);
+
+	char valor = NULL;
+	int cfor = 0, carg = 0, positionBuffer = 0;
+
+	int *position = malloc(sizeof (int));
+	if (position == NULL)
+		return (0);
+
+	va_start(arguments, format);
 	while (format[cfor])
 	{
 		if (format[cfor] == '%')
 		{
 			cfor++;
-			carg = 0;
-			while (print_format[carg].arg)
-			{
-				if (format[cfor] == print_format[carg].arg)
-				{
-					print_format[carg].f(arguments, buffer, position);
-					break;
-				}
-				carg++;
-			}
+/* Se aumenta un valor para recibir el argumento */
+/* Se crea el puntero para que reciba el argumento como parametro*/
+			*valor = format[cfor];
+			(*get_function(valor, arguments, buffer, position))
+                                (arguments, buffer, position);
 		}
 		else
 		{
@@ -44,8 +42,13 @@ int _printf(const char *format, ...)
 		}
 		cfor++;
 	}
+
 	write(1, buffer, *position);
-	va_end(arguments);
+	positionBuffer = *position;
+
 	free(buffer);
-	return (*position);
+	free(position);
+	va_end(arguments);
+
+	return (positionBuffer);
 }
