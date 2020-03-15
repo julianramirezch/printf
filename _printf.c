@@ -7,9 +7,9 @@
 int _printf(const char *format, ...)
 {
 va_list arguments;
-char *buffer = malloc (2048);
-unsigned int cfor;
-unsigned int carg;
+char *buffer = malloc(2048);
+unsigned int cfor = 0;
+unsigned int carg = 0;
 unsigned int c = 0;
 unsigned int *position;
 
@@ -19,8 +19,6 @@ position = &c;
 va_start(arguments, format);
 if (format == NULL)
 	return (1);
-cfor = 0;
-carg = 0;
 while (format && format[cfor])
 {
 	if (format[cfor] == '%')
