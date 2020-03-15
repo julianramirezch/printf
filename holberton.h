@@ -13,7 +13,7 @@
 typedef struct formats
 {
 	char arg;
-	void (*f)(va_list, char * , unsigned int *);
+	void (*f)(va_list, char *, unsigned int *);
 } cases;
 
 int _printf(const char *format, ...);
