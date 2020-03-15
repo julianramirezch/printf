@@ -21,7 +21,7 @@ if (format == NULL)
 	return (1);
 cfor = 0;
 carg = 0;
-while (format[cfor])
+while (format && format[cfor])
 {
 	if (format[cfor] == '%')
 	{
