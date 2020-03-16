@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	int (*get_function)(va_list, char *, int *, int *);/*valida formato*/
 
 	if (format == NULL)
-		return (0);
+		return (-1);
 	buffer = malloc(2048);/*asignando puntero buffer principal*/
 	if (buffer == NULL)
 		return (0);
