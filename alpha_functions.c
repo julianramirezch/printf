@@ -4,21 +4,21 @@
  * print_char - Print character.
  * @argum: va_list,
  * @buffer: Pointer.
- * @posi: Pointer to position buffer.
+ * @position: Pointer to position buffer.
  * Return: Void.
  */
 int print_char(va_list argum, char *buffer, unsigned int *position)
 {
 	buffer[*position] = va_arg(argum, int);
 	*position += 1;
-	return 0;
+	return (0);
 }
 
 /**
  * print_str - Print string.
  * @argum: va_list,
  * @buffer: Pointer.
- * @posi: Pointer to position buffer.
+ * @position: Pointer to position buffer.
  * Return: Void.
  */
 int print_str(va_list argum, char *buffer, unsigned int *position)
@@ -32,20 +32,21 @@ int print_str(va_list argum, char *buffer, unsigned int *position)
 		*position += 1;
 		cont++;
 	}
-	return 0;
+	return (0);
 }
 
 /**
  * print_pct - Print Percent.
  * @argum: va_list,
  * @buffer: Pointer.
- * @posi: Pointer to position buffer.
+ * @position: Pointer to position buffer.
  * Return: Void.
  */
 
-int print_pct(va_list argum __attribute__((unused)), char *buffer, unsigned int *position)
+int print_pct(va_list argum, char *buffer, unsigned int *position)
 {
+	(void) argum;
 	buffer[*position] = '%';
 	*position += 1;
-	return 0;
+	return (0);
 }
