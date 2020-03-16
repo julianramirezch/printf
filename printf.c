@@ -13,21 +13,21 @@ int _printf(const char *format, ...)
 	int (*get_function)(va_list, char *, int *, int *);/*valida formato*/
 
 	if (format == NULL)
-		return (0);
+		return (NULL);
 	buffer = malloc(2048);/*asignando puntero buffer principal*/
 	if (buffer == NULL)
-		return (0);
+		return (NULL);
 	len = &l;
 	pos = &p;
 	va_start(argum, format);
-	while (format[cfor])
+	while (format && format[cfor])
 	{
 		if (format[cfor] == '%')
 		{
 			cfor++;
 			get_function = select_function(format[cfor]);
 			if (get_function == NULL)
-				return (-1);
+				return (NULL);
 			else
 				get_function(argum, buffer, pos, len);
 		}
