@@ -22,5 +22,6 @@ void print_str(va_list arguments, char *buffer, unsigned int *position);
 void print_int(va_list arguments, char *buffer, unsigned int *position);
 void print_percen(va_list arguments, char *buffer, unsigned int *position);
 void print_decimal(va_list arguments, char *buffer, unsigned int *position);
+int (*get_function(char *c, va_list arguments, char *buffer, unsigned int *position))(va_list, char *, unsigned int *);
 
 #endif

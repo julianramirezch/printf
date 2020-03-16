@@ -4,7 +4,7 @@
  * @format: the recieve format.
  * Return: Pointer
  */
-int (*get_function(char *c, va_list arguments, char *buffer, unsigned int *position))(va_list, char *, unsigned int *);
+
 
 
 int _printf(const char *format, ...)

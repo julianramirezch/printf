@@ -1,11 +1,15 @@
 # -*- mode: gitignore; -*-
 *~
 *.o
+*~
 main.c
-prueba
-
+main*
 \#*\#
 /.emacs.desktop
 /.emacs.desktop.lock
 *.elc
 auto-save-list
+tramp
+.\#*
+*~
+*.out
