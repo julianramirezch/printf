@@ -70,6 +70,7 @@ int (*select_function(char c))(va_list, char *, unsigned int *)
 		{'c', print_char},
 		{'s', print_str},
 		{'i', itoaa},
+		{'d', itoaa},
 		{'%', print_pct},
 		{0, NULL}};
 
