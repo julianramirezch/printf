@@ -1,6 +1,7 @@
 # -*- mode: gitignore; -*-
 *~
 *.o
+*~
 main.c
 main*
 \#*\#
@@ -10,3 +11,5 @@ main*
 auto-save-list
 tramp
 .\#*
+*~
+*.out
