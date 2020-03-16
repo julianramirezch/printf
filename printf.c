@@ -13,10 +13,10 @@ int _printf(const char *format, ...)
 	int (*get_function)(va_list, char *, int *, int *);/*valida formato*/
 
 	if (format == NULL)
-		return (NULL);
+		return (1);
 	buffer = malloc(2048);/*asignando puntero buffer principal*/
 	if (buffer == NULL)
-		return (NULL);
+		return (1);
 	len = &l;
 	pos = &p;
 	va_start(argum, format);
@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 			cfor++;
 			get_function = select_function(format[cfor]);
 			if (get_function == NULL)
-				return (NULL);
+				return (1);
 			else
 				get_function(argum, buffer, pos, len);
 		}
