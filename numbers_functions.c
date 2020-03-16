@@ -1,6 +1,13 @@
 #include "holberton.h"
 
-int itoaa(va_list arguments, char* buffer, unsigned int *position)
+/**
+ * itoaa - covert number to string
+ * @arguments: 
+ * @buffer: char pointer to buffer function
+ * @ip: int pointer to the index pointer where we curretly are in func
+ * Return: the int pointer
+ */
+int itoaa(va_list arguments, char *buffer, unsigned int *position)
 {
 	int numbers = 0, negative = 0, count = 0;
 	int n = va_arg(arguments, int);
@@ -12,9 +19,6 @@ int itoaa(va_list arguments, char* buffer, unsigned int *position)
 		buffer[*position] = '0';
 		*position += 1;
 	}
-
-
-
 	while (numbers)
 	{
 		int r = numbers % 10;
@@ -41,7 +45,7 @@ int itoaa(va_list arguments, char* buffer, unsigned int *position)
 		count++;
 		negative = 1;
 	}
-	reverse(buffer, position, count, negative);
+	reverse(buffer, position, count);
 
 	return(*position);
 }
