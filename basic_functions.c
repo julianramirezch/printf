@@ -24,19 +24,11 @@ int _abs(int n)
 	}
 	return (n);
 }
-/**
- * reverse - reverse the string to
- * @buffer: is the main space which will be save all the files
- * @position: is the localitation of the last digit
- * @count: number count's
- *
- */
 
-
-void reverse(char *buffer, unsigned int *position, int count)
+void reverse(char *buffer, int *position, int count)
 {
-	unsigned int inicio = *position - count;
-	unsigned int final = (*position - 1);
+	int inicio = *position - count;
+	int final = (*position - 1);
 	char c;
 
 	while (final >= inicio)
