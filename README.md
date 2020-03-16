@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 printf
 
 Background
@@ -100,7 +99,7 @@ que es c y para que sirve
 void main()
 {
 
-	_printf("Hello World");
+    _printf("Hello World");
 
 }
 ```
@@ -111,7 +110,7 @@ void main()
 void main()
 {
 
-	_printf("Hello World");
+    _printf("Hello World");
 
 }
 ```
@@ -150,4 +149,3 @@ st->op->cond
 cond(yes)->e
 cond(no)->op
 ```
->>>>>>> 7b6ef3ea86dc5ddc38e94d84b4401a945246314a

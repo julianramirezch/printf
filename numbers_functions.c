@@ -8,11 +8,12 @@
   * @pos: Position.
   * Return: Pointer.
   */
-int itoaa(va_list argum, char *buffer, int *pos, int *len __attribute__((unused)))
+int itoaa(va_list argum, char *buffer, int *pos, int *len)
 {
-	int numbers = 0, negative = 0, count = 0;
+	int numbers = 0, count = 0;
 	int n = va_arg(argum, int);
 
+	(void ) len;
 	numbers = abs(n);
 
 	if (numbers == 0)
@@ -44,8 +45,7 @@ int itoaa(va_list argum, char *buffer, int *pos, int *len __attribute__((unused)
 		buffer[*pos] = '-';
 		*pos += 1;
 		count++;
-		negative = 1;
 	}
-	reverse(buffer, pos, count, negative);
+	reverse(buffer, pos, count);
 	return (*pos);
 }
