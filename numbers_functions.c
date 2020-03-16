@@ -2,14 +2,14 @@
 
 /**
  * itoaa - covert number to string
- * @arguments: 
+ * @arguments: the list of arguments they pass it
  * @buffer: char pointer to buffer function
  * @ip: int pointer to the index pointer where we curretly are in func
  * Return: the int pointer
  */
 int itoaa(va_list arguments, char *buffer, unsigned int *position)
 {
-	int numbers = 0, negative = 0, count = 0;
+	int numbers = 0, count = 0;
 	int n = va_arg(arguments, int);
 
 	numbers = abs(n);
@@ -43,9 +43,8 @@ int itoaa(va_list arguments, char *buffer, unsigned int *position)
 		buffer[*position] = '-';
 		*position += 1;
 		count++;
-		negative = 1;
 	}
-	reverse(buffer, position, count);
 
+	reverse(buffer, position, count);
 	return(*position);
 }
