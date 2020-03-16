@@ -5,26 +5,31 @@
  * Return: Pointer
  */
 
-
+int (*select_function(char c))(va_list, char *, unsigned int *);
 
 int _printf(const char *format, ...)
 {
 	va_list arguments;
 	char *buffer = NULL;
-        int cfor = 0, positionBuffer = 0;
+        int cfor = 0, positionBuffer = NULL;
 	unsigned int *position = NULL;
-	char *valor = NULL;
 /*Validacion si para ver si hay un formato*/
+	int (*get_function)(va_list, char *, unsigned int *);
+
 	if (format == NULL)
 		return (0);
 /* Asignando un puntero con un buffer principal */
-	buffer = malloc(2048);
+	buffer = malloc(50);
 	if (buffer == NULL)
 		return (0);
 
 	position = malloc(sizeof (int));
 	if (position == NULL)
 		return (0);
+        *position = 0;
+
+	va_start(arguments, format);
+
 
 	va_start(arguments, format);
 	while (format[cfor])
@@ -32,11 +37,11 @@ int _printf(const char *format, ...)
 		if (format[cfor] == '%')
 		{
 			cfor++;
-/* Se aumenta un valor para recibir el argumento */
-/* Se crea el puntero para que reciba el argumento como parametro*/
-			*valor = format[cfor];
-			(*get_function(valor, arguments, buffer, position))
-                                (arguments, buffer, position);
+			get_function = select_function(format[cfor]);
+                        if (get_function == NULL)
+                                return (-1);
+                        else
+				get_function(arguments, buffer, position);
 		}
 		else
 		{
@@ -46,8 +51,10 @@ int _printf(const char *format, ...)
 		cfor++;
 	}
 
+	buffer[*position] = '\0';
 	write(1, buffer, *position);
 	positionBuffer = *position;
+
 
 	free(buffer);
 	free(position);
@@ -56,28 +63,24 @@ int _printf(const char *format, ...)
 	return (positionBuffer);
 }
 
-int (*get_function(char *c, va_list arguments, char *buffer, unsigned int *position))(va_list, char *, unsigned int *)
+int (*select_function(char c))(va_list, char *, unsigned int *)
 {
-	int carg = 0;
+	int i = 0;
 
 	cases print_format[] = {
 		{'c', print_char},
 		{'s', print_str},
-		{'i', print_int},
-		{'%', print_percen},
-		{'d', print_decimal},
-		{0, NULL},
-	};
+		{'i', itoaa},
+		{'%', print_pct},
+		{0, NULL}};
 
-	while (print_format[carg].arg)
+	while (print_format[i].arg)
 	{
-/* La condicion va aumentar hasta que llegue un argumento nulo */
-		if (*c == print_format[carg].arg)
+		if (print_format[i].arg == c)
 		{
-			print_format[carg].f(arguments,buffer, position);
-			break;
+			return(print_format[i].f);
 		}
-		carg++;
+		i++;
 	}
 
 	return (0);
