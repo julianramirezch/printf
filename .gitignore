@@ -1,6 +1,7 @@
 # -*- mode: gitignore; -*-
 *~
 *.o
+*~
 main.c
 main*
 \#*\#
