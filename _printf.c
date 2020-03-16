@@ -4,9 +4,7 @@
  * @format: the recieve format.
  * Return: Pointer
  */
-
 int (*select_function(char c))(va_list, char *, unsigned int *);
-
 int _printf(const char *format, ...)
 {
 	va_list arguments;
@@ -15,22 +13,17 @@ int _printf(const char *format, ...)
 	unsigned int *position = NULL;
 /*Validacion si para ver si hay un formato*/
 	int (*get_function)(va_list, char *, unsigned int *);
-
 	if (format == NULL)
 		return (0);
 /* Asignando un puntero con un buffer principal */
 	buffer = malloc(50);
 	if (buffer == NULL)
 		return (0);
-
 	position = malloc(sizeof (int));
 	if (position == NULL)
 		return (0);
         *position = 0;
-
 	va_start(arguments, format);
-
-
 	va_start(arguments, format);
 	while (format[cfor])
 	{
@@ -51,14 +44,11 @@ int _printf(const char *format, ...)
 		cfor++;
 	}
 	buffer[*position] = '\0';
-
 	write(1, buffer, *position);
 	positionBuffer = *position;
-
 	free(buffer);
 	free(position);
 	va_end(arguments);
-
 	return (positionBuffer);
 }
 

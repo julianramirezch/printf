@@ -13,6 +13,7 @@
 typedef struct formats
 {
 	char arg;
+
 	int (*f)(va_list, char * , unsigned int *);
 } cases;
 
@@ -23,5 +24,6 @@ int print_pct(va_list argum, char *buffer, unsigned int *position);
 int itoaa(va_list arguments, char* buffer, unsigned int *position);
 int _abs(int n);
 void reverse(char *buffer, unsigned int *position, int count, int negative);
+
 
 #endif
