@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 			cfor++;
 			get_function = select_function(format[cfor]);
 			if (get_function == NULL)
-				return (1);
+				return (-1);
 			else
 				get_function(argum, buffer, pos, len);
 		}
