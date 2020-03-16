@@ -42,6 +42,7 @@ while (format && format[cfor])
 	}
 	cfor++;
 }
+buffer[*posi] = '\0'; 
 write(1, buffer, *posi);
 va_end(argum);
 free(buffer);
