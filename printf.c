@@ -4,73 +4,43 @@
  * @format: the recieve format.
  * Return: Pointer
  */
-int (*select_function(char c))(va_list, char *, unsigned int *);
+
 int _printf(const char *format, ...)
 {
-	va_list arguments;
+	va_list argum;
 	char *buffer = NULL;
-        int cfor = 0, positionBuffer = NULL;
-	unsigned int *position = NULL;
-/*Validacion si para ver si hay un formato*/
-	int (*get_function)(va_list, char *, unsigned int *);
+	int cfor = 0, l = 0, *len = NULL, p = 0, *pos = NULL;
+	int (*get_function)(va_list, char *, int *, int *);/*valida formato*/
+
 	if (format == NULL)
 		return (0);
-/* Asignando un puntero con un buffer principal */
-	buffer = malloc(50);
+	buffer = malloc(2048);/*asignando puntero buffer principal*/
 	if (buffer == NULL)
 		return (0);
-	position = malloc(sizeof (int));
-	if (position == NULL)
-		return (0);
-        *position = 0;
-	va_start(arguments, format);
-	va_start(arguments, format);
+	len = &l;
+	pos = &p;
+	va_start(argum, format);
 	while (format[cfor])
 	{
 		if (format[cfor] == '%')
 		{
 			cfor++;
 			get_function = select_function(format[cfor]);
-                        if (get_function == NULL)
-                                return (-1);
-                        else
-				get_function(arguments, buffer, position);
+			if (get_function == NULL)
+				return (-1);
+			else
+				get_function(argum, buffer, pos, len);
 		}
 		else
 		{
-			buffer[*position] = format[cfor];
-			*position += 1;
+			buffer[*pos] = format[cfor];
+			*pos += 1;
 		}
 		cfor++;
 	}
-	buffer[*position] = '\0';
-	write(1, buffer, *position);
-	positionBuffer = *position;
+	buffer[*pos] = '\0';
+	write(1, buffer, *pos);
+	va_end(argum);
 	free(buffer);
-	free(position);
-	va_end(arguments);
-	return (positionBuffer);
-}
-
-int (*select_function(char c))(va_list, char *, unsigned int *)
-{
-	int i = 0;
-
-	cases print_format[] = {
-		{'c', print_char},
-		{'s', print_str},
-		{'i', itoaa},
-		{'%', print_pct},
-		{0, NULL}};
-
-	while (print_format[i].arg)
-	{
-		if (print_format[i].arg == c)
-		{
-			return(print_format[i].f);
-		}
-		i++;
-	}
-
-	return (0);
+	return (*len);
 }
