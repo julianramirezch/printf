@@ -50,11 +50,10 @@ int _printf(const char *format, ...)
 		}
 		cfor++;
 	}
-
 	buffer[*position] = '\0';
+
 	write(1, buffer, *position);
 	positionBuffer = *position;
-
 
 	free(buffer);
 	free(position);

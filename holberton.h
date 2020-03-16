@@ -22,6 +22,6 @@ int print_str(va_list argum, char *buffer, unsigned int *position);
 int print_pct(va_list argum, char *buffer, unsigned int *position);
 int itoaa(va_list arguments, char* buffer, unsigned int *position);
 int _abs(int n);
-void reverse(char *buffer, unsigned int *position, int count);
+void reverse(char *buffer, unsigned int *position, int count, int negative);
 
 #endif

@@ -1,6 +1,6 @@
 #include "holberton.h"
 
-int itoa(va_list arguments, char* buffer, unsigned int *position)
+int itoaa(va_list arguments, char* buffer, unsigned int *position)
 {
 	int numbers = 0, negative = 0, count = 0;
 	int n = va_arg(arguments, int);
@@ -42,4 +42,6 @@ int itoa(va_list arguments, char* buffer, unsigned int *position)
 		negative = 1;
 	}
 	reverse(buffer, position, count, negative);
+
+	return(*position);
 }
