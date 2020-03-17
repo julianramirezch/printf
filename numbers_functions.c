@@ -1,6 +1,14 @@
 #include "holberton.h"
 
-int itoaa(va_list arguments, char* buffer, unsigned int *position)
+/**
+ * itoaa - Integer to Character
+ * @arguments: va_list
+ * @buffer: Buffer
+ * @position: position
+ * Return: Pointer
+ */
+
+int itoaa(va_list arguments, char *buffer, int *position)
 {
 	int numbers = 0, negative = 0, count = 0;
 	int n = va_arg(arguments, int);
@@ -12,9 +20,6 @@ int itoaa(va_list arguments, char* buffer, unsigned int *position)
 		buffer[*position] = '0';
 		*position += 1;
 	}
-
-
-
 	while (numbers)
 	{
 		int r = numbers % 10;
@@ -34,7 +39,7 @@ int itoaa(va_list arguments, char* buffer, unsigned int *position)
 		numbers /= 10;
 	}
 
-	if (n < 0 )
+	if (n < 0)
 	{
 		buffer[*position] = '-';
 		*position += 1;
@@ -42,6 +47,5 @@ int itoaa(va_list arguments, char* buffer, unsigned int *position)
 		negative = 1;
 	}
 	reverse(buffer, position, count, negative);
-
-	return(*position);
+	return (*position);
 }
