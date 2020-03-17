@@ -3,9 +3,7 @@
 /**
  * _abs - the function return always a positive numbers
  * @n: the character to print
- *
  * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
  */
 
 int _abs(int n)
@@ -24,20 +22,7 @@ int _abs(int n)
 	}
 	return (n);
 }
-<<<<<<< HEAD
 
-/**
- * reverse - reverse function.
- * @buffer: buffer
- * @pos: pointer position.
- * @count: count
- */
-void reverse(char *buffer, int *pos, int count)
-{
-	int inicio = *pos - count;
-	int final = (*pos - 1);
-	char c;
-=======
 /**
  * reverse - revers
  * @buffer: Buffer
@@ -52,21 +37,6 @@ void reverse(char *buffer, int *position, int count, int negative)
 		int inicio = *position - count;
 		int final = (*position - 1);
 		char c;
->>>>>>> developer
-
-	while (final >= inicio)
-	{
-<<<<<<< HEAD
-		c = buffer[inicio];
-		buffer[inicio] = buffer[final];
-		buffer[final]  = c;
-		inicio++;
-		final--;
-		pos += 1;
-=======
-		int inicio = *position - count;
-		int final = (*position - 1);
-		char c;
 
 		while (final >= inicio)
 		{
@@ -77,6 +47,5 @@ void reverse(char *buffer, int *position, int count, int negative)
 			final--;
 			position += 1;
 		}
->>>>>>> developer
 	}
 }

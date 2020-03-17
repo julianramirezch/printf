@@ -5,15 +5,15 @@
  * Return: print_format[i].f
  */
 
-int (*select_function(char c))(va_list, char *, int *, int *)
+int (*select_function(char c))(va_list, char *, int *)
 {
 	int i = 0;
 
 	cases print_format[] = {
 		{'c', print_char},
 		{'s', print_str},
-		{'i', it},
-		{'%', pc},
+		{'i', itoaa},
+		{'%', print_pct},
 		{0, NULL}};
 
 	while (print_format[i].arg)

@@ -5,21 +5,12 @@
  * @argum: va_list,
  * @buffer: Pointer.
  * @pos: Pointer to position buffer.
-<<<<<<< HEAD
- * @len: Lenght.
  * Return: Void.
  */
-int print_char(va_list argum, char *buffer, int *pos, int *len)
-{
-	buffer[*pos] = va_arg(argum, int);
-	*len += 1;
-=======
- * Return: Void.
- */
+
 int print_char(va_list argum, char *buffer, int *pos)
 {
 	buffer[*pos] = va_arg(argum, int);
->>>>>>> developer
 	*pos += 1;
 	return (0);
 }
@@ -29,16 +20,10 @@ int print_char(va_list argum, char *buffer, int *pos)
  * @argum: va_list,
  * @buffer: Pointer.
  * @pos: Pointer to position buffer.
-<<<<<<< HEAD
- * @len: Lenght;
  * Return: 0.
  */
-int print_str(va_list argum, char *buffer, int *pos, int *len)
-=======
- * Return: Void.
- */
+
 int print_str(va_list argum, char *buffer, int *pos)
->>>>>>> developer
 {
 	char *str = va_arg(argum, char*);
 	int cont = 0;
@@ -48,10 +33,6 @@ int print_str(va_list argum, char *buffer, int *pos)
 	while (str[cont])
 	{
 		buffer[*pos] = str[cont];
-<<<<<<< HEAD
-		*len += 1;
-=======
->>>>>>> developer
 		*pos += 1;
 		cont++;
 	}
@@ -59,27 +40,16 @@ int print_str(va_list argum, char *buffer, int *pos)
 }
 
 /**
- * pc - Print Percent.
+ * print_pct - Print Percent.
  * @argum: va_list,
  * @buffer: Pointer.
  * @pos: Pointer to position buffer.
-<<<<<<< HEAD
- * @len: lengh
- * Return: Void.
- */
-
-int pc(va_list argum __attribute__((unused)), char *buffer, int *pos, int *len)
-{
-	buffer[*pos] = '%';
-	*len += 1;
-=======
  * Return: Void.
  */
 
 int print_pct(va_list argum __attribute__((unused)), char *buffer, int *pos)
 {
 	buffer[*pos] = '%';
->>>>>>> developer
 	*pos += 1;
 	return (0);
 }
