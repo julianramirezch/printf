@@ -46,8 +46,7 @@ int _printf(const char *format, ...)
 
 	write(1, buffer, *pos);
 
-	clean_buffer(buffer, pos);
-
+	free(buffer);
 	va_end(argum);
 	return (*pos);
 }
