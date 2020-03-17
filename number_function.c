@@ -47,3 +47,52 @@ int itoaa(va_list arguments, char *buffer, int *position)
 
 	return (*position);
 }
+
+/**
+ * binary - is the function to convert binary to string
+ * @arguments: is the list of the arguments the printf recive
+ * @buffer: where all the input save her
+ * @position: is the size of the input
+ *
+ * Return: the pointer with the size of the printf
+ */
+int binary(va_list argum, char *buffer, int *pos)
+{
+        int numbers = 0, count = 0, n;
+	n = va_arg(argum, int);
+
+        numbers = abs(n);
+
+        if (numbers == 0)
+        {
+                buffer[*pos] = '0';
+                *pos += 1;
+        }
+        while (numbers)
+        {
+                int r = numbers % 2;
+
+                if (r >= 10)
+                {
+                        buffer[*pos] = 65 + (r - 10);
+                        *pos += 1;
+                        count++;
+                }
+                else
+                {
+                        buffer[*pos] = 48 + r;
+                        *pos += 1;
+                        count++;
+                }
+                numbers /= 2;
+        }
+
+	if (n < 0)
+        {
+                buffer[*pos] = '-';
+                *pos += 1;
+                count++;
+        }
+        reverse(buffer, pos, count);
+        return (*pos);
+}
