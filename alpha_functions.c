@@ -10,17 +10,7 @@
 
 int print_char(va_list argum, char *buffer, int *pos)
 {
-	char c;
-
-	c = va_arg(argum, int);
-
-	if (c == 0)
-	{
-		return (-1);
-	}
-
-	buffer[*pos] = c;
-
+	buffer[*pos] = va_arg(argum, int);
 	*pos += 1;
 	return (0);
 }
@@ -40,6 +30,7 @@ int print_str(va_list argum, char *buffer, int *pos)
 
 	if (str == NULL)
 	{
+		str = "(null)";
 		return (-1);
 	}
 
