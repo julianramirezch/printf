@@ -1,19 +1,7 @@
 #include "holberton.h"
 
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD:numbers_functions.c
- * _abs - the function return always a positive numbers
- * @n: the character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-=======
- * itoaa - Integer to Char.
-=======
  * it - Integer to Char.
->>>>>>> d282d57a9f4e77ad822d5ddd04a4b930f603e3b5
  * @argum: va_list
  * @buffer: buffer.
  * @len: Lenght
@@ -26,65 +14,37 @@ int it(va_list argum, char *buffer, int *pos, int *len __attribute__((unused)))
 	int n = va_arg(argum, int);
 
 	numbers = abs(n);
->>>>>>> 901cfd7b8472e8447b6309d5b91573bd652425e9:number_functions.c
 
-int _abs(int n)
-{
-	if (n > 0)
+	if (numbers == 0)
 	{
-		return (n);
+		buffer[*pos] = '0';
+		*pos += 1;
 	}
-	else if (n == 0)
+	while (numbers)
 	{
-		return (n);
-	}
-	else if (n < 0)
-	{
-		return (n = n * -1);
-	}
-	return (n);
-}
+		int r = numbers % 10;
 
-void reverse(char *buffer, unsigned int *position, int count, int negative)
-{
-	if (negative == 0)
-	{
-		unsigned int inicio = *position - count;
-		unsigned int final = (*position - 1);
-		char c;
-
-		while (final >= *position)
+		if (r >= 10)
 		{
-			c = buffer[inicio];
-			buffer[inicio] = buffer[final];
-			buffer[final]  = c;
-			final--;
-			position += 1;
+			buffer[*pos] = 65 + (r - 10);
+			*pos += 1;
+			count++;
 		}
-	}
-	else
-	{
-<<<<<<< HEAD:numbers_functions.c
-		unsigned int inicio = *position - count;
-		unsigned int final = (*position - 1);
-		char c;
-
-		while (final >= inicio)
+		else
 		{
-			c = buffer[inicio];
-			buffer[inicio] = buffer[final];
-			buffer[final]  = c;
-			inicio++;
-			final--;
-			position += 1;
+			buffer[*pos] = 48 + r;
+			*pos += 1;
+			count++;
 		}
+		numbers /= 10;
 	}
-=======
+
+	if (n < 0)
+	{
 		buffer[*pos] = '-';
 		*pos += 1;
 		count++;
 	}
 	reverse(buffer, pos, count);
 	return (*pos);
->>>>>>> 901cfd7b8472e8447b6309d5b91573bd652425e9:number_functions.c
 }
