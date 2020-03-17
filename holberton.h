@@ -23,7 +23,12 @@ int print_str(va_list argum, char *buffer, unsigned int *position);
 int print_pct(va_list argum, char *buffer, unsigned int *position);
 int itoaa(va_list arguments, char* buffer, unsigned int *position);
 int _abs(int n);
+<<<<<<< HEAD
 void reverse(char *buffer, unsigned int *position, int count, int negative);
 
+=======
+void reverse(char *buffer, int *pos, int count);
+int (*select_function(char c))(va_list, char *, int *, int *);
+>>>>>>> 901cfd7b8472e8447b6309d5b91573bd652425e9
 
 #endif

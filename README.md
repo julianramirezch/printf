@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-printf
-
+A
 Background
 In the early days, computer programmers would
 write their own subroutines to read in and print out
@@ -100,7 +98,7 @@ que es c y para que sirve
 void main()
 {
 
-	_printf("Hello World");
+    _printf("Hello World");
 
 }
 ```
@@ -111,7 +109,7 @@ void main()
 void main()
 {
 
-	_printf("Hello World");
+    _printf("Hello World");
 
 }
 ```

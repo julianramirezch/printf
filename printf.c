@@ -15,6 +15,7 @@ int _printf(const char *format, ...)
 	int (*get_function)(va_list, char *, unsigned int *);
 	if (format == NULL)
 		return (0);
+<<<<<<< HEAD
 /* Asignando un puntero con un buffer principal */
 	buffer = malloc(50);
 	if (buffer == NULL)
@@ -25,6 +26,14 @@ int _printf(const char *format, ...)
         *position = 0;
 	va_start(arguments, format);
 	va_start(arguments, format);
+=======
+	buffer = malloc(2048);/*asignando puntero buffer principal*/
+	if (buffer == NULL)
+		return (0);
+	len = &l;
+	pos = &p;
+	va_start(argum, format);
+>>>>>>> 901cfd7b8472e8447b6309d5b91573bd652425e9
 	while (format[cfor])
 	{
 		if (format[cfor] == '%')
