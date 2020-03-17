@@ -4,55 +4,57 @@
  * @format: the recieve format.
  * Return: Pointer
  */
-int (*select_function(char c))(va_list, char *, unsigned int *);
+
 int _printf(const char *format, ...)
 {
-	va_list arguments;
+	va_list argum;
 	char *buffer = NULL;
-        int cfor = 0, positionBuffer = NULL;
-	unsigned int *position = NULL;
+	int cfor = 0, *pos = NULL, a = 0;
 /*Validacion si para ver si hay un formato*/
-	int (*get_function)(va_list, char *, unsigned int *);
+	int (*get_function)(va_list, char *, int *);
+
 	if (format == NULL)
-		return (0);
+		return (-1);
 /* Asignando un puntero con un buffer principal */
 	buffer = malloc(50);
 	if (buffer == NULL)
-		return (0);
-	position = malloc(sizeof (int));
-	if (position == NULL)
-		return (0);
-        *position = 0;
-	va_start(arguments, format);
-	va_start(arguments, format);
-	while (format[cfor])
+		return (-1);
+	pos = &a;
+	va_start(argum, format);
+	while (format && format[cfor])
 	{
 		if (format[cfor] == '%')
 		{
 			cfor++;
 			get_function = select_function(format[cfor]);
-                        if (get_function == NULL)
-                                return (-1);
-                        else
-				get_function(arguments, buffer, position);
+			if (get_function == NULL)
+			{
+				break;
+				return (-1);
+			}
+			else
+				get_function(argum, buffer, pos);
 		}
 		else
 		{
-			buffer[*position] = format[cfor];
-			*position += 1;
+			buffer[*pos] = format[cfor];
+			*pos += 1;
 		}
 		cfor++;
 	}
-	buffer[*position] = '\0';
-	write(1, buffer, *position);
-	positionBuffer = *position;
+	buffer[*pos] = '\0';
+	write(1, buffer, *pos);
 	free(buffer);
-	free(position);
-	va_end(arguments);
-	return (positionBuffer);
+	va_end(argum);
+	return (*pos);
 }
 
-int (*select_function(char c))(va_list, char *, unsigned int *)
+/**
+ * select_function - Select Function
+ * @c: Character
+ * Return: 0
+ */
+int (*select_function(char c))(va_list, char *, int *)
 {
 	int i = 0;
 
@@ -67,7 +69,7 @@ int (*select_function(char c))(va_list, char *, unsigned int *)
 	{
 		if (print_format[i].arg == c)
 		{
-			return(print_format[i].f);
+			return (print_format[i].f);
 		}
 		i++;
 	}
