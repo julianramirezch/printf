@@ -142,14 +142,63 @@ int octal(va_list argum, char *buffer, int *pos)
 	return (*pos);
 }
 /**
- * hexadecimal - is the function to convert int to hexadecimal string
+ * hexadown - is the function to convert int to hexadecimal string
  * @argum: is the list of the arguments the printf recive
  * @buffer: where all the input save her
  * @pos: is the size of the input
  *
  * Return: the pointer with the size of the printf
  */
-int hexadecimal(va_list argum, char *buffer, int *pos)
+int hexadown(va_list argum, char *buffer, int *pos)
+{
+	int numbers = 0, count = 0, n, r;
+
+	n = va_arg(argum, int);
+	numbers = abs(n);
+	if (numbers == 0)
+	{
+		buffer[*pos] = '0';
+		*pos += 1;
+	}
+	while (numbers)
+	{
+		r = numbers % 16;
+		if (r >= 10)
+		{
+			buffer[*pos] = 65 + (r - 10);
+			*pos += 1;
+			count++;
+		}
+		else
+		{
+			buffer[*pos] = 48 + r;
+			*pos += 1;
+			count++;
+		}
+		numbers /= 16;
+	}
+	if (n < 0)
+	{
+		buffer[*pos] = '-';
+		*pos += 1;
+		count++;
+	}
+	string_todown(buffer, pos, count);
+	reverse(buffer, pos, count);
+	return (*pos);
+}
+
+/**
+ * hexaupper - is the function to convert int to hexadecimal string in format
+ * upper case.
+ *
+ * @argum: is the list of the arguments the printf recive
+ * @buffer: where all the input save her
+ * @pos: is the size of the input
+ *
+ * Return: the pointer with the size of the printf
+ */
+int hexaupper(va_list argum, char *buffer, int *pos)
 {
 	int numbers = 0, count = 0, n, r;
 

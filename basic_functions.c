@@ -1,26 +1,5 @@
 #include "holberton.h"
 /**
- * *string_toupper - become the whole string to uppercase
- * @s: pointer to string
- *
- *Return: the string in uppercase
- */
-char *string_toupper(char *s)
-{
-	int i = 0;
-
-	while (s[i] != 0)
-	{
-		if (s[i] >= 'a' && s[i] <= 'z')
-		{
-			s[i] -= 32;
-			/* The - 32 is for down positon to the upper string */
-		}
-		i++;
-	}
-	return (s);
-}
-/**
  * _abs - the function return always a positive numbers
  * @n: the character to print
  * Return: On success 1.
@@ -44,11 +23,10 @@ int _abs(int n)
 }
 
 /**
- * reverse - revers
+ * reverse - reverse the string to display in the correct way
  * @buffer: Buffer
  * @position: Position
  * @count: Conut
- * @negative: Negative
  */
 void reverse(char *buffer, int *position, int count)
 {
@@ -64,5 +42,27 @@ void reverse(char *buffer, int *position, int count)
 		inicio++;
 		final--;
 		position += 1;
+	}
+}
+/**
+ * string_todown - convert string to down case
+ * @buffer: Buffer
+ * @position: Position
+ * @count: Conut
+ */
+void string_todown(char *buffer, int *position, int count)
+{
+	int inicio = *position - count;
+	int final = (*position - 1);
+
+	while (inicio <= final)
+	{
+		if (buffer[inicio] >= 'A' && buffer[inicio] <= 'Z')
+		{
+			buffer[inicio] += 32;
+/* The - 32 is for down positon to the upper string */
+		}
+		inicio++;
+
 	}
 }
