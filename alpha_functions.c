@@ -10,7 +10,11 @@
 
 int print_char(va_list argum, char *buffer, int *pos)
 {
-	buffer[*pos] = va_arg(argum, int);
+	char c;
+	c = va_arg(argum, int);
+	if (c == 0)
+		return (-1);
+	buffer[*pos] = c;
 	*pos += 1;
 	return (0);
 }
