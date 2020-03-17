@@ -14,7 +14,7 @@ int print_char(va_list argum, char *buffer, int *pos)
 
 	c = va_arg(argum, int);
 
-	if (c == NULL)
+	if (c == 0)
 	{
 		return (-1);
 	}
