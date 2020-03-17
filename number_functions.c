@@ -1,14 +1,14 @@
 #include "holberton.h"
 
 /**
- * itoaa - Integer to Char.
+ * it - Integer to Char.
  * @argum: va_list
  * @buffer: buffer.
  * @len: Lenght
  * @pos: Position.
  * Return: Pointer.
  */
-int itoaa(va_list argum, char *buffer, int *pos, int *len __attribute__((unused)))
+int it(va_list argum, char *buffer, int *pos, int *len __attribute__((unused)))
 {
 	int numbers = 0, count = 0;
 	int n = va_arg(argum, int);

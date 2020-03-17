@@ -12,7 +12,7 @@ int (*select_function(char c))(va_list, char *, int *, int *)
 	cases print_format[] = {
 		{'c', print_char},
 		{'s', print_str},
-		{'i', itoaa},
+		{'i', it},
 		{'%', pc},
 		{0, NULL}};
 
