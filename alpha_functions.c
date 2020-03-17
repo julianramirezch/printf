@@ -29,14 +29,7 @@ int print_str(va_list argum, char *buffer, int *pos)
 	int cont = 0;
 
 	if (str == NULL)
-	{
 		str = "(null)";
-<<<<<<< HEAD
-=======
-		return (-1);
->>>>>>> dev_julian
-	}
-
 	while (str[cont])
 	{
 		buffer[*pos] = str[cont];
