@@ -43,9 +43,7 @@ int _printf(const char *format, ...)
 		cfor++;
 	}
 	buffer[*pos] = '\0';
-
 	write(1, buffer, *pos);
-
 	free(buffer);
 	va_end(argum);
 	return (*pos);
