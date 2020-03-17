@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 /* Asignando un puntero con un buffer principal */
-	buffer = malloc(50);
+	buffer = malloc(2024);
 	if (buffer == NULL)
 		return (-1);
 	pos = &a;
@@ -43,8 +43,11 @@ int _printf(const char *format, ...)
 		cfor++;
 	}
 	buffer[*pos] = '\0';
+
 	write(1, buffer, *pos);
-	free(buffer);
+
+	clean_buffer(buffer, pos);
+
 	va_end(argum);
 	return (*pos);
 }
