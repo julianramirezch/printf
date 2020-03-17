@@ -14,7 +14,7 @@ int itoaa(va_list arguments, char *buffer, int *position)
 	int n = va_arg(arguments, int);
 
 	numbers = abs(n);
-	if (numbers == 0)
+	if (numbers == 0 || n == 0)
 	{
 		buffer[*position] = '0';
 		*position += 1;
