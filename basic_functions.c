@@ -24,6 +24,7 @@ int _abs(int n)
 	}
 	return (n);
 }
+<<<<<<< HEAD
 
 /**
  * reverse - reverse function.
@@ -36,14 +37,46 @@ void reverse(char *buffer, int *pos, int count)
 	int inicio = *pos - count;
 	int final = (*pos - 1);
 	char c;
+=======
+/**
+ * reverse - revers
+ * @buffer: Buffer
+ * @position: Position
+ * @count: Conut
+ * @negative: Negative
+ */
+void reverse(char *buffer, int *position, int count, int negative)
+{
+	if (negative == 0)
+	{
+		int inicio = *position - count;
+		int final = (*position - 1);
+		char c;
+>>>>>>> developer
 
 	while (final >= inicio)
 	{
+<<<<<<< HEAD
 		c = buffer[inicio];
 		buffer[inicio] = buffer[final];
 		buffer[final]  = c;
 		inicio++;
 		final--;
 		pos += 1;
+=======
+		int inicio = *position - count;
+		int final = (*position - 1);
+		char c;
+
+		while (final >= inicio)
+		{
+			c = buffer[inicio];
+			buffer[inicio] = buffer[final];
+			buffer[final]  = c;
+			inicio++;
+			final--;
+			position += 1;
+		}
+>>>>>>> developer
 	}
 }
