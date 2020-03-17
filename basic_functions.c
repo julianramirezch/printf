@@ -30,7 +30,6 @@ int _abs(int n)
  * @buffer: buffer
  * @pos: pointer position.
  * @count: count
- * @negative: Negative
  */
 void reverse(char *buffer, int *pos, int count)
 {
