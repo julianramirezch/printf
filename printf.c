@@ -27,7 +27,10 @@ int _printf(const char *format, ...)
 			cfor++;
 			get_function = select_function(format[cfor]);
 			if (get_function == NULL)
+			{	va_end(argum);
+				free(buffer);
 				return (-1);
+			}
 			else
 				get_function(argum, buffer, pos, len);
 		}
