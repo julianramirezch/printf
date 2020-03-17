@@ -31,6 +31,10 @@ int print_str(va_list argum, char *buffer, int *pos)
 	if (str == NULL)
 	{
 		str = "(null)";
+<<<<<<< HEAD
+=======
+		return (-1);
+>>>>>>> dev_julian
 	}
 
 	while (str[cont])
