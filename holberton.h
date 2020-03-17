@@ -30,5 +30,6 @@ int octal(va_list argum, char *buffer, int *pos);
 int hexaupper(va_list argum, char *buffer, int *pos);
 int hexadown(va_list argum, char *buffer, int *pos);
 void string_todown(char *buffer, int *pos, int count);
+int unk(char c, char *buffer, int *pos);
 
 #endif

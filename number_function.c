@@ -5,7 +5,6 @@
  * @arguments: is the list of the arguments the printf recive
  * @buffer: where all the input save her
  * @position: is the size of the input
- *
  * Return: the pointer with the size of the printf
  */
 int itoaa(va_list arguments, char *buffer, int *position)
@@ -14,7 +13,7 @@ int itoaa(va_list arguments, char *buffer, int *position)
 	int n = va_arg(arguments, int);
 
 	numbers = abs(n);
-	if (numbers == 0 || n == 0)
+	if (numbers == 0 || n == 00)
 	{
 		buffer[*position] = '0';
 		*position += 1;
@@ -44,7 +43,6 @@ int itoaa(va_list arguments, char *buffer, int *position)
 		count++;
 	}
 	reverse(buffer, position, count);
-
 	return (*position);
 }
 
@@ -117,7 +115,6 @@ int octal(va_list argum, char *buffer, int *pos)
 	while (numbers)
 	{
 		r = numbers % 8;
-
 		if (r >= 10)
 		{
 			buffer[*pos] = 65 + (r - 10);
@@ -141,6 +138,7 @@ int octal(va_list argum, char *buffer, int *pos)
 	reverse(buffer, pos, count);
 	return (*pos);
 }
+
 /**
  * hexadown - is the function to convert int to hexadecimal string
  * @argum: is the list of the arguments the printf recive
