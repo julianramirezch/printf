@@ -10,14 +10,17 @@
 int itoaa(va_list arguments, char *buffer, int *position)
 {
 	int numbers = 0, count = 0, r;
+
 	int n = va_arg(arguments, int);
 
-	numbers = abs(n);
-	if (numbers == 0 || n == 00)
+	if (_isdigit(n) == 0)
 	{
 		buffer[*position] = '0';
 		*position += 1;
+		return (0);
 	}
+
+	numbers = abs(n);
 	while (numbers)
 	{
 		r = numbers % 10;

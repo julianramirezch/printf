@@ -1,5 +1,23 @@
 #include "holberton.h"
 /**
+ * _isdigit - check if the code is a digit or not
+ * @c: they return a character
+ *
+ * Return: the value who introduce.
+ */
+int _isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+	return (c);
+}
+/**
  * _abs - the function return always a positive numbers
  * @n: the character to print
  * Return: On success 1.
