@@ -26,6 +26,7 @@ int _abs(int n);
 void reverse(char *buffer, int *pos, int count);
 int binary(va_list argum, char *buffer, int *pos);
 int (*select_function(char c))(va_list, char *, int *);
-
+int octal(va_list argum, char *buffer, int *pos);
+int hexadecimal(va_list argum, char *buffer, int *pos);
 
 #endif

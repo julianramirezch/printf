@@ -30,7 +30,7 @@ int print_str(va_list argum, char *buffer, int *pos)
 
 	if (str == NULL)
 	{
-		str = 0;
+		str = "(null)";
 		return (-1);
 	}
 

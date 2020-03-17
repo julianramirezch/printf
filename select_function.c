@@ -16,6 +16,8 @@ int (*select_function(char c))(va_list, char *, int *)
 		{'d', itoaa},
 		{'%', print_pct},
 		{'b', binary},
+		{'o', octal},
+		{'x', hexadecimal},
 		{0, NULL}
 	};
 
