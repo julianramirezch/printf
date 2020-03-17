@@ -1,51 +1,61 @@
 #include "holberton.h"
 
 /**
-  * itoaa - Integer to Char.
-  * @argum: va_list
-  * @buffer: buffer.
-  * @len: Lenght
-  * @pos: Position.
-  * Return: Pointer.
-  */
-int itoaa(va_list argum, char *buffer, int *pos, int *len __attribute__((unused)))
+ * _abs - the function return always a positive numbers
+ * @n: the character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+
+int _abs(int n)
 {
-	int numbers = 0, negative = 0, count = 0;
-	int n = va_arg(argum, int);
-
-	numbers = abs(n);
-
-	if (numbers == 0)
+	if (n > 0)
 	{
-		buffer[*pos] = '0';
-		*pos += 1;
+		return (n);
 	}
-	while (numbers)
+	else if (n == 0)
 	{
-		int r = numbers % 10;
+		return (n);
+	}
+	else if (n < 0)
+	{
+		return (n = n * -1);
+	}
+	return (n);
+}
 
-		if (r >= 10)
+void reverse(char *buffer, unsigned int *position, int count, int negative)
+{
+	if (negative == 0)
+	{
+		unsigned int inicio = *position - count;
+		unsigned int final = (*position - 1);
+		char c;
+
+		while (final >= *position)
 		{
-			buffer[*pos] = 65 + (r - 10);
-			*pos += 1;
-			count++;
+			c = buffer[inicio];
+			buffer[inicio] = buffer[final];
+			buffer[final]  = c;
+			final--;
+			position += 1;
 		}
-		else
-		{
-			buffer[*pos] = 48 + r;
-			*pos += 1;
-			count++;
-		}
-		numbers /= 10;
 	}
-
-	if (n < 0)
+	else
 	{
-		buffer[*pos] = '-';
-		*pos += 1;
-		count++;
-		negative = 1;
+		unsigned int inicio = *position - count;
+		unsigned int final = (*position - 1);
+		char c;
+
+		while (final >= inicio)
+		{
+			c = buffer[inicio];
+			buffer[inicio] = buffer[final];
+			buffer[final]  = c;
+			inicio++;
+			final--;
+			position += 1;
+		}
 	}
-	reverse(buffer, pos, count, negative);
-	return (*pos);
 }
