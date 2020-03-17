@@ -28,5 +28,5 @@ int binary(va_list argum, char *buffer, int *pos);
 int (*select_function(char c))(va_list, char *, int *);
 int octal(va_list argum, char *buffer, int *pos);
 int hexadecimal(va_list argum, char *buffer, int *pos);
-int unk(char format, char *buffer, int *pos);
+int unk(char c, char *buffer, int *pos);
 #endif

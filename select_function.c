@@ -28,8 +28,23 @@ int (*select_function(char c))(va_list, char *, int *)
 			return (print_format[i].f);
 		}
 		i++;
-		if (!(print_format[i].arg == c))
-			unk(format[i], buffer, posi);
 	}
+	return (0);
+}
+
+/**
+ * unk - Print Unknown format
+ * @c: Character.
+ * @buffer: Buffer
+ * @pos: Position in buffer.
+ * Return: Always 0
+ */
+
+int unk(char c, char *buffer, int *pos)
+{
+	buffer[*pos] = '%';
+	*pos += 1;
+	buffer[*pos] = c;
+	*pos += 1;
 	return (0);
 }
