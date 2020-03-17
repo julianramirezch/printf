@@ -28,7 +28,6 @@ int _abs(int n)
  * @buffer: Buffer
  * @position: Position
  * @count: Conut
- * @negative: Negative
  */
 void reverse(char *buffer, int *position, int count)
 {
