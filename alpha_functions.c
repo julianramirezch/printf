@@ -29,6 +29,8 @@ int print_str(va_list argum, char *buffer, int *pos, int *len)
 	char *str = va_arg(argum, char*);
 	int cont = 0;
 
+	if (str == NULL)
+		str = "(null)";
 	while (str[cont])
 	{
 		buffer[*pos] = str[cont];
