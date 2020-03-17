@@ -28,6 +28,8 @@ int (*select_function(char c))(va_list, char *, int *)
 			return (print_format[i].f);
 		}
 		i++;
+		if (!(print_format[i].arg == c))
+			unk(format[i], buffer, posi);
 	}
 	return (0);
 }

@@ -53,3 +53,20 @@ int print_pct(va_list argum __attribute__((unused)), char *buffer, int *pos)
 	*pos += 1;
 	return (0);
 }
+
+/**
+ * unknown - Print Unknown format
+ * @format: Character.
+ * @buffer: Buffer
+ * @pos: Position in buffer.
+ */
+
+int unk(char format, char *buffer, int *pos)
+{
+	buffer[*pos] = '%';
+	*pos += 1;
+	buffer[*pos] = format;
+	*pos += 1;
+	return (0);
+}
+
