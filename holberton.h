@@ -25,6 +25,5 @@ int itoaa(va_list argum, char *buffer, int *pos);
 int _abs(int n);
 void reverse(char *buffer, int *pos, int count, int negative);
 int (*select_function(char c))(va_list, char *, int *);
-int (*select_function(char c))(va_list, char *, int *);
 
 #endif

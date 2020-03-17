@@ -33,10 +33,13 @@ int _printf(const char *format, ...)
 				return (-1);
 			}
 			else
-			{
+				get_function(argum, buffer, pos);
+		}
+		else
+		{
 				buffer[*pos] = format[cfor];
 				*pos += 1;
-			}
+		}
 		cfor++;
 	}
 	buffer[*pos] = '\0';
