@@ -13,17 +13,16 @@
 typedef struct formats
 {
 	char arg;
-
-	int (*f)(va_list, char * , unsigned int *);
+	int (*f)(va_list, char *, int *);
 } cases;
 
 int _printf(const char *format, ...);
-int print_char(va_list argum, char *buffer, unsigned int *position);
-int print_str(va_list argum, char *buffer, unsigned int *position);
-int print_pct(va_list argum, char *buffer, unsigned int *position);
-int itoaa(va_list arguments, char* buffer, unsigned int *position);
+int print_char(va_list argum, char *buffer, int *pos);
+int print_str(va_list argum, char *buffer, int *pos);
+int print_pct(va_list argum, char *buffer, int *pos);
+int itoaa(va_list argum, char *buffer, int *pos);
 int _abs(int n);
-void reverse(char *buffer, unsigned int *position, int count, int negative);
-
+void reverse(char *buffer, int *pos, int count, int negative);
+int (*select_function(char c))(va_list, char *, int *);
 
 #endif
