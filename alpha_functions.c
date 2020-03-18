@@ -53,3 +53,24 @@ int print_pct(va_list argum __attribute__((unused)), char *buffer, int *pos)
 	*pos += 1;
 	return (0);
 }
+/**
+ * rev - Print reverse string.
+ * @argum: va_list
+ * @buffer: Buffer
+ * @pos: Poisition in buffer
+ * Return: 0
+ */
+int rev(va_list argum, char *buffer, int *pos)
+{
+	char *s = va_arg(argum, char *);
+	int cont;
+	int aux;
+	for (cont = 0 ; *(s + cont) != '\0' ; cont++)
+	{}
+	for (aux = cont - 1 ; aux >= 0 ; aux--)
+	{
+		buffer[*pos] =(*(s + aux));
+		*pos += 1;
+	}
+	return(0);
+}
