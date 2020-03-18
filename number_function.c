@@ -9,40 +9,40 @@
  */
 int itoaa(va_list arguments, char *buffer, int *position)
 {
-	long int numbers = 0, count = 0, r;
-	int n = va_arg(arguments, int);
+        long int negative = 0, rem = 0, count = 0;
+	long int num = va_arg(arguments,  int);
 
-	if (n == 0)
-	{
-		buffer[*position] = '0';
-		*position += 1;
-	}
-	if (n < 0)
-	{
-		buffer[*position] = '-';
-		*position += 1;
+        if (num == 00 || num == 0)
+        {
+                buffer[*position] = '0';
+                *position += 1;
+                return (0);
+        }
 
-	}
+        if (num < 0)
+        {
+                negative = 1;
+                num = -num;
+        }
 
-	numbers = abs(n);
-	while (numbers)
-	{
-		r = numbers % 10;
-		if (r >= 10)
-		{
-			buffer[*position] = 65 + (r - 10);
-			*position += 1;
-			count++;
-		}
-		else
-		{
-			buffer[*position] = 48 + r;
-			*position += 1;
-			count++;
-		}
-		numbers /= 10;
-	}
-	reverse(buffer, position, count);
+        while (num != 0)
+        {
+                rem = num % 10;
+                buffer[*position] = (rem > 9)
+                        ? (rem - 10) + 'A'
+                        : rem + '0';
+                *position += 1;
+                num /= 10;
+                count++;
+        }
+        if (negative)
+        {
+                buffer[*position] = '-';
+                *position += 1;
+                count++;
+        }
+        reverse(buffer, position, count);
+
 	return (*position);
 }
 
@@ -56,12 +56,17 @@ int itoaa(va_list arguments, char *buffer, int *position)
  */
 int binary(va_list argum, char *buffer, int *pos)
 {
-	long int numbers = 0, count = 0, n, r;
+	long int numbers = 0, count = 0, n = 0, r;
 
 	n = va_arg(argum, long int);
+	if (n < 0)
+	{
+		buffer[*pos] = '0';
+                *pos += 1;
+		return (0);
+	}
 
 	numbers = abs(n);
-
 	if (numbers == 0)
 	{
 		buffer[*pos] = '0';
