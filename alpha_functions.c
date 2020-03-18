@@ -74,3 +74,30 @@ int rev(va_list argum, char *buffer, int *pos)
 	}
 	return(0);
 }
+/**
+ * rot13 - Print string in ROT13
+ * @argum: va-list
+ * @buffer: Buffer
+ * @pos: Pointer position
+ * Return: 0
+ */
+int rot13(va_list argum, char *buffer, int *pos)
+{
+	char *s = va_arg(argum, char *);
+	int j;
+	int u;
+	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char b[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	for (j = 0 ; *(s + j) ; j++)
+	{
+		for (u = 0 ; *(a + u) ; u++)
+		{
+			if (*(s + j) == *(a + u))
+			{
+				buffer[*pos] = *(b + u);
+				*pos += 1;
+				break;
+			}
+		}
+	}
+	return (0);

@@ -12,8 +12,9 @@ int (*select_function(char c))(va_list, char *, int *)
 	cases print_format[] = {
 		{'c', print_char},
 		{'s', print_str},
-		{'r',rev},
+		{'r', rev},
 		{'i', itoaa},
+		{'R', rot13},
 		{'d', itoaa},
 		{'%', print_pct},
 		{'b', binary},
