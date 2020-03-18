@@ -88,40 +88,27 @@ int binary(va_list arguments, char *buffer, int *position)
  */
 int octal(va_list argum, char *buffer, int *pos)
 {
-	long int numbers = 0, count = 0, n, r;
+	unsigned int rem = 0, count = 0;
+	int num = va_arg(arguments,  int);
 
-	n = va_arg(argum, long int);
-	numbers = abs(n);
-	if (numbers == 0)
+	if (num == 00)
 	{
-		buffer[*pos] = '0';
-		*pos += 1;
+		buffer[*position] = '0';
+		*position += 1;
+		return (0);
 	}
-	while (numbers)
+	while (num != 0)
 	{
-		r = numbers % 8;
-		if (r >= 10)
-		{
-			buffer[*pos] = 65 + (r - 10);
-			*pos += 1;
-			count++;
-		}
-		else
-		{
-			buffer[*pos] = 48 + r;
-			*pos += 1;
-			count++;
-		}
-		numbers /= 8;
-	}
-	if (n < 0)
-	{
-		buffer[*pos] = '-';
-		*pos += 1;
+		rem = num % 2;
+		buffer[*position] = (rem > 9)
+			? (rem - 10) + 'A'
+			: rem + '0';
+		*position += 1;
+		num /= 2;
 		count++;
 	}
-	reverse(buffer, pos, count);
-	return (*pos);
+	reverse(buffer, position, count);
+	return (*position);
 }
 
 /**
@@ -133,42 +120,30 @@ int octal(va_list argum, char *buffer, int *pos)
  * Return: the pointer with the size of the printf
  */
 int hexadown(va_list argum, char *buffer, int *pos)
-{
-	long int numbers = 0, count = 0, n, r;
 
-	n = va_arg(argum, long int);
-	numbers = abs(n);
-	if (numbers == 0)
+	string_todown(buffer, pos, count);
+{
+	unsigned int rem = 0, count = 0;
+	int num = va_arg(arguments,  int);
+
+	if (num == 00 || num <= 0)
 	{
-		buffer[*pos] = '0';
-		*pos += 1;
+		buffer[*position] = '0';
+		*position += 1;
+		return (0);
 	}
-	while (numbers)
+	while (num != 0)
 	{
-		r = numbers % 16;
-		if (r >= 10)
-		{
-			buffer[*pos] = 65 + (r - 10);
-			*pos += 1;
-			count++;
-		}
-		else
-		{
-			buffer[*pos] = 48 + r;
-			*pos += 1;
-			count++;
-		}
-		numbers /= 16;
-	}
-	if (n < 0)
-	{
-		buffer[*pos] = '-';
-		*pos += 1;
+		rem = num % 2;
+		buffer[*position] = (rem > 9)
+			? (rem - 10) + 'A'
+			: rem + '0';
+		*position += 1;
+		num /= 2;
 		count++;
 	}
-	string_todown(buffer, pos, count);
-	reverse(buffer, pos, count);
-	return (*pos);
+	reverse(buffer, position, count);
+	return (*position);
 }
 
 /**
@@ -183,38 +158,25 @@ int hexadown(va_list argum, char *buffer, int *pos)
  */
 int hexaupper(va_list argum, char *buffer, int *pos)
 {
-	long int numbers = 0, count = 0, n, r;
+	unsigned int rem = 0, count = 0;
+	int num = va_arg(arguments,  int);
 
-	n = va_arg(argum, long int);
-	numbers = abs(n);
-	if (numbers == 0)
+	if (num == 00 || num <= 0)
 	{
-		buffer[*pos] = '0';
-		*pos += 1;
+		buffer[*position] = '0';
+		*position += 1;
+		return (0);
 	}
-	while (numbers)
+	while (num != 0)
 	{
-		r = numbers % 16;
-		if (r >= 10)
-		{
-			buffer[*pos] = 65 + (r - 10);
-			*pos += 1;
-			count++;
-		}
-		else
-		{
-			buffer[*pos] = 48 + r;
-			*pos += 1;
-			count++;
-		}
-		numbers /= 16;
-	}
-	if (n < 0)
-	{
-		buffer[*pos] = '-';
-		*pos += 1;
+		rem = num % 2;
+		buffer[*position] = (rem > 9)
+			? (rem - 10) + 'A'
+			: rem + '0';
+		*position += 1;
+		num /= 2;
 		count++;
 	}
-	reverse(buffer, pos, count);
-	return (*pos);
+	reverse(buffer, position, count);
+	return (*position);
 }
