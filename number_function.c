@@ -142,7 +142,6 @@ int hexadown(va_list argum, char *buffer, int *pos)
 		count++;
 	}
 
-	string_todown(buffer, pos, count);
 	reverse(buffer, pos, count);
 	return (*pos);
 }
@@ -178,6 +177,7 @@ int hexaupper(va_list argum, char *buffer, int *pos)
 		num /= 16;
 		count++;
 	}
+	string_todown(buffer, pos, count);
 	reverse(buffer, pos, count);
 	return (*pos);
 }

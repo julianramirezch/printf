@@ -19,6 +19,7 @@ int (*select_function(char c))(va_list, char *, int *)
 		{'o', octal},
 		{'x', hexaupper},
 		{'X', hexadown},
+		{'u', unsignedint},
 		{0, NULL}
 	};
 
