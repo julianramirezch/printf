@@ -9,72 +9,72 @@
  */
 int itoaa(va_list arguments, char *buffer, int *position)
 {
-        long int negative = 0, rem = 0, count = 0;
+	long int negative = 0, rem = 0, count = 0;
 	long int num = va_arg(arguments,  int);
 
-        if (num == 00 || num == 0)
-        {
-                buffer[*position] = '0';
-                *position += 1;
-                return (0);
-        }
-        if (num < 0)
-        {
+	if (num == 00 || num == 0)
+	{
+		buffer[*position] = '0';
+		*position += 1;
+		return (0);
+	}
+	if (num < 0)
+	{
 		negative = 1;
-                num = -num;
-        }
-        while (num != 0)
-        {
-                rem = num % 10;
-                buffer[*position] = (rem > 9)
-                        ? (rem - 10) + 'A'
-                        : rem + '0';
-                *position += 1;
-                num /= 10;
-                count++;
-        }
-        if (negative)
-        {
-                buffer[*position] = '-';
-                *position += 1;
-                count++;
-        }
-        reverse(buffer, position, count);
+		num = -num;
+	}
+	while (num != 0)
+	{
+		rem = num % 10;
+		buffer[*position] = (rem > 9)
+			? (rem - 10) + 'A'
+			: rem + '0';
+		*position += 1;
+		num /= 10;
+		count++;
+	}
+	if (negative)
+	{
+		buffer[*position] = '-';
+		*position += 1;
+		count++;
+	}
+	reverse(buffer, position, count);
 
 	return (*position);
 }
 
 /**
  * binary - is the function to convert binary to string
- * @argum: is the list of the arguments the printf recive
+ * @arguments: is the list of the arguments the printf recive
  * @buffer: where all the input save her
- * @pos: is the size of the input
+ * @position: is the size of the input
  *
  * Return: the pointer with the size of the printf
  */
 int binary(va_list arguments, char *buffer, int *position)
 {
-        long int rem = 0, count = 0;
-	long int num = va_arg(arguments,  int);
+	unsigned int rem = 0, count = 0;
+	int num = va_arg(arguments,  int);
 
-        if (num == 00 || num == 0 || num < 0)
-        {
-                buffer[*position] = '0';
-                *position += 1;
-                return (0);
-        }
-        while (num != 0)
-        {
-                rem = num % 2;
-                buffer[*position] = (rem > 9)
-                        ? (rem - 10) + 'A'
-                        : rem + '0';
-                *position += 1;
-                num /= 2;
-                count++;
-        }
+	if (num == 00 || num <= 0)
+	{
+		buffer[*position] = '0';
+		*position += 1;
+		return (0);
+	}
+	while (num != 0)
+	{
+		rem = num % 2;
+		buffer[*position] = (rem > 9)
+			? (rem - 10) + 'A'
+			: rem + '0';
+		*position += 1;
+		num /= 2;
+		count++;
+	}
 
-        reverse(buffer, position, count);
+	reverse(buffer, position, count);
 
 	return (*position);
 }
