@@ -125,7 +125,7 @@ int hexadown(va_list argum, char *buffer, int *pos)
 	int rem = 0, count = 0;
 	int num = va_arg(argum,  int);
 
-	if (num == 00 || num <= 0)
+	if (num == 00)
 	{
 		buffer[*pos] = '0';
 		*pos += 1;
