@@ -69,17 +69,12 @@ gcc -Wall -Werror -Wextra -pedantic -std=c90 -Wno-format *.c -g
 `<link>` : **https://github.com/julianramirezch**
 `<link>` : **https://github.com/andresvanegas19**
 
-###FlowChart
-
-```flow
-st=>start: Login
-op=>operation: Login operation
-cond=>condition: Successful Yes or No?
-e=>end: To admin
-
-st->op->cond
-cond(yes)->e
-cond(no)->op
+```mermaid
+graph LR
+A[Square Rect] -- Link text --> B((Circle))
+A --> C(Round Rect)
+B --> D{Rhombus}
+C --> D
 ```
 
 ### version
