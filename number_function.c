@@ -18,13 +18,11 @@ int itoaa(va_list arguments, char *buffer, int *position)
                 *position += 1;
                 return (0);
         }
-
         if (num < 0)
         {
-                negative = 1;
+		negative = 1;
                 num = -num;
         }
-
         while (num != 0)
         {
                 rem = num % 10;
@@ -54,49 +52,31 @@ int itoaa(va_list arguments, char *buffer, int *position)
  *
  * Return: the pointer with the size of the printf
  */
-int binary(va_list argum, char *buffer, int *pos)
+int binary(va_list arguments, char *buffer, int *position)
 {
-	long int numbers = 0, count = 0, n = 0, r;
+        long int rem = 0, count = 0;
+	long int num = va_arg(arguments,  int);
 
-	n = va_arg(argum, long int);
-	if (n < 0)
-	{
-		buffer[*pos] = '0';
-                *pos += 1;
-		return (0);
-	}
+        if (num == 00 || num == 0 || num < 0)
+        {
+                buffer[*position] = '0';
+                *position += 1;
+                return (0);
+        }
+        while (num != 0)
+        {
+                rem = num % 2;
+                buffer[*position] = (rem > 9)
+                        ? (rem - 10) + 'A'
+                        : rem + '0';
+                *position += 1;
+                num /= 2;
+                count++;
+        }
 
-	numbers = abs(n);
-	if (numbers == 0)
-	{
-		buffer[*pos] = '0';
-		*pos += 1;
-	}
-	while (numbers)
-	{
-		r = numbers % 2;
-		if (r >= 10)
-		{
-			buffer[*pos] = 65 + (r - 10);
-			*pos += 1;
-			count++;
-		}
-		else
-		{
-			buffer[*pos] = 48 + r;
-			*pos += 1;
-			count++;
-		}
-		numbers /= 2;
-	}
-	if (n < 0)
-	{
-		buffer[*pos] = '-';
-		*pos += 1;
-		count++;
-	}
-	reverse(buffer, pos, count);
-	return (*pos);
+        reverse(buffer, position, count);
+
+	return (*position);
 }
 /**
  * octal - is the function to convert octal to string
