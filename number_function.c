@@ -121,10 +121,8 @@ int octal(va_list argum, char *buffer, int *pos)
  * Return: the pointer with the size of the printf
  */
 int hexadown(va_list argum, char *buffer, int *pos)
-
-	string_todown(buffer, pos, count);
 {
-	unsigned int rem = 0, count = 0;
+	int rem = 0, count = 0;
 	int num = va_arg(arguments,  int);
 
 	if (num == 00 || num <= 0)
@@ -135,14 +133,16 @@ int hexadown(va_list argum, char *buffer, int *pos)
 	}
 	while (num != 0)
 	{
-		rem = num % 2;
+		rem = num % 16;
 		buffer[*position] = (rem > 9)
 			? (rem - 10) + 'A'
 			: rem + '0';
 		*position += 1;
-		num /= 2;
+		num /= 16;
 		count++;
 	}
+
+	string_todown(buffer, pos, count);
 	reverse(buffer, position, count);
 	return (*position);
 }
