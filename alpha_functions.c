@@ -63,16 +63,16 @@ int print_pct(va_list argum __attribute__((unused)), char *buffer, int *pos)
 int rev(va_list argum, char *buffer, int *pos)
 {
 	char *s = va_arg(argum, char *);
-	int cont;
-	int aux;
+	int cont, aux;
+
 	for (cont = 0 ; *(s + cont) != '\0' ; cont++)
 	{}
 	for (aux = cont - 1 ; aux >= 0 ; aux--)
 	{
-		buffer[*pos] =(*(s + aux));
+		buffer[*pos] = (*(s + aux));
 		*pos += 1;
 	}
-	return(0);
+	return (0);
 }
 /**
  * rot13 - Print string in ROT13
@@ -84,13 +84,13 @@ int rev(va_list argum, char *buffer, int *pos)
 int rot13(va_list argum, char *buffer, int *pos)
 {
 	char *s = va_arg(argum, char *);
-	int j;
-	int u;
+	int j, u;
 	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char b[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
 	for (j = 0 ; *(s + j) ; j++)
 	{
-		for (u = 0 ; *(a + u) ; u++)
+		for (u = 0; *(a + u); u++)
 		{
 			if (*(s + j) == *(a + u))
 			{
