@@ -123,28 +123,28 @@ int octal(va_list argum, char *buffer, int *pos)
 int hexadown(va_list argum, char *buffer, int *pos)
 {
 	int rem = 0, count = 0;
-	int num = va_arg(arguments,  int);
+	int num = va_arg(argum,  int);
 
 	if (num == 00 || num <= 0)
 	{
-		buffer[*position] = '0';
-		*position += 1;
+		buffer[*pos] = '0';
+		*pos += 1;
 		return (0);
 	}
 	while (num != 0)
 	{
 		rem = num % 16;
-		buffer[*position] = (rem > 9)
+		buffer[*pos] = (rem > 9)
 			? (rem - 10) + 'A'
 			: rem + '0';
-		*position += 1;
+		*pos += 1;
 		num /= 16;
 		count++;
 	}
 
 	string_todown(buffer, pos, count);
-	reverse(buffer, position, count);
-	return (*position);
+	reverse(buffer, pos, count);
+	return (*pos);
 }
 
 /**
@@ -160,24 +160,24 @@ int hexadown(va_list argum, char *buffer, int *pos)
 int hexaupper(va_list argum, char *buffer, int *pos)
 {
 	unsigned int rem = 0, count = 0;
-	int num = va_arg(arguments,  int);
+	int num = va_arg(argum,  int);
 
 	if (num == 00)
 	{
-		buffer[*position] = '0';
-		*position += 1;
+		buffer[*pos] = '0';
+		*pos += 1;
 		return (0);
 	}
 	while (num != 0)
 	{
 		rem = num % 16;
-		buffer[*position] = (rem > 9)
+		buffer[*pos] = (rem > 9)
 			? (rem - 10) + 'A'
 			: rem + '0';
-		*position += 1;
+		*pos += 1;
 		num /= 16;
 		count++;
 	}
-	reverse(buffer, position, count);
-	return (*position);
+	reverse(buffer, pos, count);
+	return (*pos);
 }
