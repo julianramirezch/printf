@@ -101,3 +101,4 @@ int rot13(va_list argum, char *buffer, int *pos)
 		}
 	}
 	return (0);
+}
