@@ -9,14 +9,18 @@
  */
 int unsignedint(va_list argum, char *buffer, int *pos)
 {
-	int rem = 0, count = 0;
-	int num = va_arg(argum,  unsigned int);
+	long int rem = 0, count = 0, negative = 4294967296;
+	long int num = va_arg(argum,  int);
 
 	if (num == 00)
 	{
 		buffer[*pos] = '0';
 		*pos += 1;
 		return (0);
+	}
+	if (num < 0)
+	{
+		num += negative;
 	}
 	while (num != 0)
 	{
