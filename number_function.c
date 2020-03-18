@@ -162,7 +162,7 @@ int hexaupper(va_list argum, char *buffer, int *pos)
 	unsigned int rem = 0, count = 0;
 	int num = va_arg(arguments,  int);
 
-	if (num == 00 || num <= 0)
+	if (num == 00)
 	{
 		buffer[*position] = '0';
 		*position += 1;
@@ -170,12 +170,12 @@ int hexaupper(va_list argum, char *buffer, int *pos)
 	}
 	while (num != 0)
 	{
-		rem = num % 2;
+		rem = num % 16;
 		buffer[*position] = (rem > 9)
 			? (rem - 10) + 'A'
 			: rem + '0';
 		*position += 1;
-		num /= 2;
+		num /= 16;
 		count++;
 	}
 	reverse(buffer, position, count);
