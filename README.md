@@ -71,13 +71,6 @@ gcc -Wall -Werror -Wextra -pedantic -std=c90 -Wno-format *.c -g
 `<link>` : **https://github.com/julianramirezch**
 `<link>` : **https://github.com/andresvanegas19**
 
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
 
 ### version
 
