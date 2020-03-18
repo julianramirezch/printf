@@ -1,97 +1,33 @@
+
+
 # Build your own **printf**
 
-Background
-In the early days, computer programmers would
-write their own subroutines to read in and print out
-numbers. It is not terribly difficult, actually. Just
-allocate a character array to hold the result, divide
-the number by ten, keep the remainder, add x30 to
-it, and store it at the end of the array. Repeat the
-process until all the digits are found. Then print it.
-Too easy, right?
-But even though it was easy (for Einstein), it still
-took some effort. And what about error checking,
-and negative numbers? So the computer programmers brought forth libraries of prerecorded functions. And it was good. Eventually the most popular
-of these functions were canonized into membership
-in the “standard” libraries. Number printing was
-popular enough to gain this hallowed honor.
-This meant that programmers did not have to
-reinvent the number-printing subroutine again and
-again. It also meant that everybody’s favorite options tried to make it into the standard.
-Thus was printf born.
-2 Simple Printing
-In the most simple case, printf takes one argument:
-a string of characters to be printed. This string is
-composed of characters, each of which is printed exactly as it appears. So printf("xyz"); would simply print an x, then a y, and finally a z. This is not
-exactly “formatted” printing, but it is still the basis
-of what printf does.
-2.1 Naturally Special Characters
-To identify the start of the string, we put a doublequote (") at the front. To identify the end of the
-string we put another double-quote at the end. But
-what if we want to actually print a double-quote?
-We can’t exactly put a double-quote in the middle
-of the string because it would be mistaken for the
-end-of-string marker. Double-quote is a special character. The normal print-what-you-see rules do not
-apply.
-Different languages take different approaches to
-this problem. Some require the special character to
-be entered twice. C uses backslash (virgule, \) as
-an escape character to change the meaning of the
-next character after it. Thus, to print a doublequote you type in backslash double-quote. To print
-a backslash, you must escape it by typing another
-backslash in front of it. The first backslash means
-“give the next character its alternate meaning.” The
-second backslash has an alternate meaning of “print
-a backslash.”
-Without a backslash, special characters have a
-natural special meaning. With a backslash they
-print as they appear. Here is a partial list.
-
-
-
-
-
-The printf function is a powerful device for printing numbers and other things stored in variables.
-With this power there is a certain amount of complexity. Taken all at once, the complexity makes
-printf seem almost impossible to understand. But
-the complexity can be easily unfolded into simple
-features, including width, precision, signage, justification, and fill. By recognizing and understanding these features, printf will become a useful and
-friendly servant in your printing endeavors.
-
-https://dillinger.io/
-https://jbt.github.io/markdown-editor/
-# New Documentdsadasd
-![](https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png)
-sadsada
-# Files
-
-StackEdit stores your files in your browser, which means all your files are automatically saved locally and are accessible **offline!**
-## SmartyPants
-
-SmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:
-
-|                |ASCII                          |HTML                         |
-|----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
-https://pandao.github.io/editor.md/en.html
-https://stackedit.io/app#
-=======
-# PRINTF
+The printf function is a powerful device for printing numbers and other things stored in variables. With this power there is a certain amount of complexity. Taken all at once, the complexity makes printf seem almost impossible to understand. But the complexity can be easily unfolded into simple features, including width, precision, signage, justification, and fill. By recognizing and understanding these features, printf will become a useful and friendly servant in your printing endeavors.
 
 ![](https://www.it.uc3m.es/pbasanta/asng/course_notes/input_output_printf_example_es.png)
 
-----
-**Table of Contents**
+## SmartyPants
+Flag that printf can recive
 
-[TOCM]
+| FLAG  | WHAT THAT MEANS 
+| ------ | ------ |
+ `%c`  |It must be for char or ASCII |
+| `%s` | It's for string  |
+| `%%`| it's for display numbers |
+| `%d` | it's for show natural numbers and negative |
+| `%b` |  it's for display binary numbers |
+| `%u` |  it's for only natural numbers |
+| `%o` |  display numbers in octal |
+| `%x` | display numbers in hexadecimal |
+| `%X` | display numbers in hexadecimal but in uppercase |
+| `%r` | reverse the string |
+| `%R` |prints the rot13'ed string |
 
-[TOC]
 
-###C
-que es c y para que sirve
-####Ejemplos de c🤓
+# C
+> "System programming language" developed in 1972 by Dennis Ritchie for UNIX a cross-platform operating system. C is a general purpose programming language that offers syntactic economy, flow control and simple structures and a good set of operators.
+
+### Ejemplos de c🤓
 
 ```c
 #include "holberton.h"
@@ -149,3 +85,186 @@ st->op->cond
 cond(yes)->e
 cond(no)->op
 ```
+
+
+# Dillinger
+
+[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
+Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
+
+  - Type some Markdown on the left
+  - See HTML in the right
+  - Magic
+
+# New Features!
+
+  - Import a HTML file and watch it magically convert to Markdown
+  - Drag and drop images (requires your Dropbox account be linked)
+
+
+You can also:
+  - Import and save files from GitHub, Dropbox, Google Drive and One Drive
+  - Drag and drop markdown and HTML files into Dillinger
+  - Export documents as Markdown, HTML and PDF
+
+Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As [John Gruber] writes on the [Markdown site][df1]
+
+> The overriding design goal for Markdown's
+> formatting syntax is to make it as readable
+> as possible. The idea is that a
+> Markdown-formatted document should be
+> publishable as-is, as plain text, without
+> looking like it's been marked up with tags
+> or formatting instructions.
+
+This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
+
+### Tech
+
+Dillinger uses a number of open source projects to work properly:
+
+* [AngularJS] - HTML enhanced for web apps!
+* [Ace Editor] - awesome web-based text editor
+* [markdown-it] - Markdown parser done right. Fast and easy to extend.
+* [Twitter Bootstrap] - great UI boilerplate for modern web apps
+* [node.js] - evented I/O for the backend
+* [Express] - fast node.js network app framework [@tjholowaychuk]
+* [Gulp] - the streaming build system
+* [Breakdance](https://breakdance.github.io/breakdance/) - HTML to Markdown converter
+* [jQuery] - duh
+
+And of course Dillinger itself is open source with a [public repository][dill]
+ on GitHub.
+
+### Installation
+
+Dillinger requires [Node.js](https://nodejs.org/) v4+ to run.
+
+Install the dependencies and devDependencies and start the server.
+
+```sh
+$ cd dillinger
+$ npm install -d
+$ node app
+```
+
+For production environments...
+
+```sh
+$ npm install --production
+$ NODE_ENV=production node app
+```
+
+### Plugins
+
+Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
+
+| Plugin | README |
+| ------ | ------ |
+| Dropbox | [plugins/dropbox/README.md][PlDb] |
+| GitHub | [plugins/github/README.md][PlGh] |
+| Google Drive | [plugins/googledrive/README.md][PlGd] |
+| OneDrive | [plugins/onedrive/README.md][PlOd] |
+| Medium | [plugins/medium/README.md][PlMe] |
+| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
+
+
+### Development
+
+Want to contribute? Great!
+
+Dillinger uses Gulp + Webpack for fast developing.
+Make a change in your file and instantaneously see your updates!
+
+Open your favorite Terminal and run these commands.
+
+First Tab:
+```sh
+$ node app
+```
+
+Second Tab:
+```sh
+$ gulp watch
+```
+
+(optional) Third:
+```sh
+$ karma test
+```
+#### Building for source
+For production release:
+```sh
+$ gulp build --prod
+```
+Generating pre-built zip archives for distribution:
+```sh
+$ gulp build dist --prod
+```
+### Docker
+Dillinger is very easy to install and deploy in a Docker container.
+
+By default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.
+
+```sh
+cd dillinger
+docker build -t joemccann/dillinger:${package.json.version} .
+```
+This will create the dillinger image and pull in the necessary dependencies. Be sure to swap out `${package.json.version}` with the actual version of Dillinger.
+
+Once done, run the Docker image and map the port to whatever you wish on your host. In this example, we simply map port 8000 of the host to port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
+
+```sh
+docker run -d -p 8000:8080 --restart="always" <youruser>/dillinger:${package.json.version}
+```
+
+Verify the deployment by navigating to your server address in your preferred browser.
+
+```sh
+127.0.0.1:8000
+```
+
+#### Kubernetes + Google Cloud
+
+See [KUBERNETES.md](https://github.com/joemccann/dillinger/blob/master/KUBERNETES.md)
+
+
+### Todos
+
+ - Write MORE Tests
+ - Add Night Mode
+
+License
+----
+
+MIT
+
+
+**Free Software, Hell Yeah!**
+
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+
+
+   [dill]: <https://github.com/joemccann/dillinger>
+   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
+   [john gruber]: <http://daringfireball.net>
+   [df1]: <http://daringfireball.net/projects/markdown/>
+   [markdown-it]: <https://github.com/markdown-it/markdown-it>
+   [Ace Editor]: <http://ace.ajax.org>
+   [node.js]: <http://nodejs.org>
+   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
+   [jQuery]: <http://jquery.com>
+   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
+   [express]: <http://expressjs.com>
+   [AngularJS]: <http://angularjs.org>
+   [Gulp]: <http://gulpjs.com>
+
+   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
+   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
+   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
+   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
+   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
+   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
