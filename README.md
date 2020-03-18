@@ -64,6 +64,8 @@ It is important that there is a main file so that the function _print can be run
 gcc -Wall -Werror -Wextra -pedantic -std=c90 -Wno-format *.c -g
 ```
 
+### Flowchart
+![](https://www.lucidchart.com/publicSegments/view/b3e67873-aa4e-4bda-9247-4968fda4f09b/image.png)
 
 ### Links of creators
 `<link>` : **https://github.com/julianramirezch**
