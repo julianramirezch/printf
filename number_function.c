@@ -9,22 +9,25 @@
  */
 int itoaa(va_list arguments, char *buffer, int *position)
 {
-	int numbers = 0, count = 0, r;
-
+	long int numbers = 0, count = 0, r;
 	int n = va_arg(arguments, int);
 
-	if (_isdigit(n) == 0)
+	if (n == 0)
 	{
 		buffer[*position] = '0';
 		*position += 1;
-		return (0);
+	}
+	if (n < 0)
+	{
+		buffer[*position] = '-';
+		*position += 1;
+
 	}
 
 	numbers = abs(n);
 	while (numbers)
 	{
 		r = numbers % 10;
-
 		if (r >= 10)
 		{
 			buffer[*position] = 65 + (r - 10);
@@ -38,12 +41,6 @@ int itoaa(va_list arguments, char *buffer, int *position)
 			count++;
 		}
 		numbers /= 10;
-	}
-	if (n < 0)
-	{
-		buffer[*position] = '-';
-		*position += 1;
-		count++;
 	}
 	reverse(buffer, position, count);
 	return (*position);
@@ -59,9 +56,9 @@ int itoaa(va_list arguments, char *buffer, int *position)
  */
 int binary(va_list argum, char *buffer, int *pos)
 {
-	int numbers = 0, count = 0, n, r;
+	long int numbers = 0, count = 0, n, r;
 
-	n = va_arg(argum, int);
+	n = va_arg(argum, long int);
 
 	numbers = abs(n);
 
@@ -106,9 +103,9 @@ int binary(va_list argum, char *buffer, int *pos)
  */
 int octal(va_list argum, char *buffer, int *pos)
 {
-	int numbers = 0, count = 0, n, r;
+	long int numbers = 0, count = 0, n, r;
 
-	n = va_arg(argum, int);
+	n = va_arg(argum, long int);
 	numbers = abs(n);
 	if (numbers == 0)
 	{
@@ -152,9 +149,9 @@ int octal(va_list argum, char *buffer, int *pos)
  */
 int hexadown(va_list argum, char *buffer, int *pos)
 {
-	int numbers = 0, count = 0, n, r;
+	long int numbers = 0, count = 0, n, r;
 
-	n = va_arg(argum, int);
+	n = va_arg(argum, long int);
 	numbers = abs(n);
 	if (numbers == 0)
 	{
@@ -201,9 +198,9 @@ int hexadown(va_list argum, char *buffer, int *pos)
  */
 int hexaupper(va_list argum, char *buffer, int *pos)
 {
-	int numbers = 0, count = 0, n, r;
+	long int numbers = 0, count = 0, n, r;
 
-	n = va_arg(argum, int);
+	n = va_arg(argum, long int);
 	numbers = abs(n);
 	if (numbers == 0)
 	{

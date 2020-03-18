@@ -5,12 +5,12 @@
 #include <unistd.h>
 #include <stdio.h>
 
+#define NULO NULL
 /**
  * struct formats - Struct
  * @arg: Char pointer
  * @f: The function associated
  */
-
 typedef struct formats
 {
 	char arg;
@@ -23,7 +23,7 @@ int print_str(va_list argum, char *buffer, int *pos);
 int print_pct(va_list argum, char *buffer, int *pos);
 int itoaa(va_list argum, char *buffer, int *pos);
 int _abs(int n);
-int _isdigit(int n);
+int _isdigit(int c);
 void reverse(char *buffer, int *pos, int count);
 int binary(va_list argum, char *buffer, int *pos);
 int (*select_function(char c))(va_list, char *, int *);
