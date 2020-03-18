@@ -1,4 +1,5 @@
-A
+# Build your own **printf**
+
 Background
 In the early days, computer programmers would
 write their own subroutines to read in and print out
@@ -148,4 +149,3 @@ st->op->cond
 cond(yes)->e
 cond(no)->op
 ```
->>>>>>> 7b6ef3ea86dc5ddc38e94d84b4401a945246314a
