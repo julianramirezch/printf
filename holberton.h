@@ -17,7 +17,10 @@ typedef struct formats
 	int (*f)(va_list, char *, int *);
 } cases;
 
-int _printf(const char *format, ...);
+int unsignedint(va_list argum, char *buffer, int *pos);
+void hex(char c, char *buffer, int *pos);
+int print_S(va_list argum, char *buffer, int *pos);
+Int _printf(const char *format, ...);
 int print_char(va_list argum, char *buffer, int *pos);
 int print_str(va_list argum, char *buffer, int *pos);
 int print_pct(va_list argum, char *buffer, int *pos);
