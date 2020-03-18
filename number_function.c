@@ -131,6 +131,7 @@ int hexadown(va_list argum, char *buffer, int *pos)
 		*pos += 1;
 		return (0);
 	}
+
 	while (num != 0)
 	{
 		rem = num % 16;
@@ -167,6 +168,7 @@ int hexaupper(va_list argum, char *buffer, int *pos)
 		*pos += 1;
 		return (0);
 	}
+
 	while (num != 0)
 	{
 		rem = num % 16;
@@ -177,6 +179,7 @@ int hexaupper(va_list argum, char *buffer, int *pos)
 		num /= 16;
 		count++;
 	}
+
 	string_todown(buffer, pos, count);
 	reverse(buffer, pos, count);
 	return (*pos);
