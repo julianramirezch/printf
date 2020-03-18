@@ -71,8 +71,8 @@ int print_S(va_list argum, char *buffer, int *pos)
 }
 
 /**
- * hexadown - is the function to convert int to hexadecimal string
- * @argum: is the list of the arguments the printf recive
+ * hex - is the function to convert int to hexadecimal string
+ * @c: is the char
  * @buffer: where all the input save her
  * @pos: is the size of the input
  *
@@ -80,26 +80,26 @@ int print_S(va_list argum, char *buffer, int *pos)
  */
 void hex(char c, char *buffer, int *pos)
 {
-        int rem = 0, count = 0;
+	int rem = 0, count = 0;
 
-        if (num == 00)
-        {
-                buffer[*pos] = '0';
-                *pos += 1;
-                return (0);
-        }
+	if (num == 00)
+	{
+		buffer[*pos] = '0';
+		*pos += 1;
+		return (0);
+	}
 
-        while (num != 0)
-        {
-                rem = num % 16;
-                buffer[*pos] = (rem > 9)
-                        ? (rem - 10) + 'A'
-                        : rem + '0';
-                *pos += 1;
-                num /= 16;
-                count++;
-        }
+	while (num != 0)
+	{
+		rem = num % 16;
+		buffer[*pos] = (rem > 9)
+			? (rem - 10) + 'A'
+			: rem + '0';
+		*pos += 1;
+		num /= 16;
+		count++;
+	}
 
-        reverse(buffer, pos, count);
-        return (*pos);
+	reverse(buffer, pos, count);
+	return (*pos);
 }

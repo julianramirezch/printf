@@ -20,6 +20,7 @@ int (*select_function(char c))(va_list, char *, int *)
 		{'x', hexaupper},
 		{'X', hexadown},
 		{'u', unsignedint},
+		{'S', print_S},
 		{0, NULL}
 	};
 
