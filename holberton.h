@@ -17,6 +17,8 @@ typedef struct formats
 	int (*f)(va_list, char *, int *);
 } cases;
 
+int rot13(va_list argum, char *buffer, int *pos);
+int rev(va_list argum, char *buffer, int *pos);
 int unsignedint(va_list argum, char *buffer, int *pos);
 void hex(char c, char *buffer, int *pos);
 int print_S(va_list argum, char *buffer, int *pos);
