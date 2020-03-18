@@ -47,10 +47,7 @@ int unsignedint(va_list argum, char *buffer, int *pos)
 int print_S(va_list argum, char *buffer, int *pos)
 {
 	int i = 0;
-	char *p = va_arg(arguments, char *);
-
-	if (p == NULL)
-		str = "(null)";
+	char *p = va_arg(argum, char *);
 
 	while (p[i])
 	{
@@ -62,7 +59,7 @@ int print_S(va_list argum, char *buffer, int *pos)
 		}
 		else
 		{
-			buffer[*pos] = ptr[i];
+			buffer[*pos] = p[i];
 			*pos += 1;
 			i++;
 		}
@@ -82,24 +79,16 @@ void hex(char c, char *buffer, int *pos)
 {
 	int rem = 0, count = 0;
 
-	if (num == 00)
+	while (c != 0)
 	{
-		buffer[*pos] = '0';
-		*pos += 1;
-		return (0);
-	}
-
-	while (num != 0)
-	{
-		rem = num % 16;
+		rem = c % 16;
 		buffer[*pos] = (rem > 9)
 			? (rem - 10) + 'A'
 			: rem + '0';
 		*pos += 1;
-		num /= 16;
+		c /= 16;
 		count++;
 	}
 
 	reverse(buffer, pos, count);
-	return (*pos);
 }
