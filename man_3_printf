@@ -7,7 +7,7 @@ _printf - _printf recreates the primary functions of printf
 int _printf(const char *format, ...);
 .SH
 .B DESCRIPTION
-_printf() - function that produces output according to a format specifier.
+_printf() - is a function is a powerful device for printing numbers and other things stored in variables. With this power there is a certain amount of complexity. Taken all at once, the complexity makes printf seem almost impossible to understand. But the complexity can be easily unfolded into simple features, including width, precision, signage, justification, and fill. By recognizing and understanding these features, printf will become a useful and friendly servant in your printing endeavors.
 
 .TP
 .B Compile
@@ -60,7 +60,58 @@ Print number to octal base.
 Print number to binary decimal
 
 .SH EXAMPLE
--------------
+.B first example
+
+#include "holberton.h"
+
+int main(void)
+{
+
+	unsigned int unsignedempty = 12312312;
+
+	_printf("Number: [%d]\n", -762534);
+
+	_printf("Number: [%d]\n", unsignedempty);
+
+	_printf("NUmber: [%d, %i]\n", 0000000000000001, 0000000000000001);
+
+	return 0;
+
+}
+
+.B second example
+
+#include "holberton.h"
+int main(void)
+{
+
+	char c = 'c';
+	_printf("String: [%s]\n", "Holberton School");
+
+	_printf("Char: [%c]\n", c);
+
+	_printf("String: [%s]\n", "H3ll0 W0rld");
+
+	return 0;
+
+}
+
+.B third example
+
+#include "holberton.h"
+int main(void)
+{
+
+	int len = 2, i;
+
+	_printf("Number: [%d]\n", len + 2);
+
+	for(i = 0; i > 3; i++)
+      	      _printf("Number: [%d]", i);
+
+      return 0;
+
+}
 
 .SH GITHUB REPOSITORY
 .RS
