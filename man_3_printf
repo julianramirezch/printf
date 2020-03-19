@@ -1,17 +1,71 @@
-.TH man 2 "04 May 2015" "0.32" "holberton man page"
+.TH _printf 1.0
 .SH NAME
-.B holberton
-- become a full-stack software engineer.
+_printf - _printf recreates the primary functions of printf
 .SH SYNOPSIS
-holberton [STUDENTNAME]
-.SH DESCRIPTION
-Holberton School is a project-based alternative to college for the next generation of software engineers.
-.SH OPTIONS
-.B holberton
-does not take any options. However, you can supply studentname.
-.SH SEE ALSO
-.I peerlearning(2), projectbased(2), fullstack(2), Betty(1)
-.SH BUGS
-No known bugs.
+#include "holberton.h"
+
+int _printf(const char *format, ...);
+.SH
+.B DESCRIPTION
+_printf() - function that produces output according to a format specifier.
+
+.TP
+.B Compile
+
+gcc -Wall -Werror -Wextra -pedantic *.c -o printf
+
+.TP
+.B Return Value
+
+The return value of _printf is the number of characters printed, excluding the terminating NULL byte.
+
+-1 is returned on falure.
+
+.SH FORMATS
+
+.TP
+The character % is the conversion specifier and should be followed by the following characters:
+
+.B i, d
+Print positive and negative numbers.
+
+.B c
+Print characters, first is converted to an int ASCII and print the char.
+
+.B s
+Print strings , when the string is NULL print (null).
+
+.B r
+Prin th reverse of a string.
+
+.B %
+Print the character % .
+
+.B R
+Print string in rot13.
+
+.B u
+Print number as unsigned int.
+
+.B x
+Print number to hexadecimal in lowercase
+
+.B X
+Print number to hexadecimal in uppercase.
+
+.B o
+Print number to octal base.
+
+.B b
+Print number to binary decimal
+
+.SH EXAMPLE
+-------------
+
+.SH GITHUB REPOSITORY
+.RS
+Visit : "https://github.com/julianramirezch/printf
+.RE
+
 .SH AUTHOR
-Julien y el kings
+Andres Reyes, Julian Ramirez
